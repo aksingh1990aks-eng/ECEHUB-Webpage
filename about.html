@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="About College Hub - ECE Innovation Center. Learn about our mission, vision, and the team behind this platform.">
+    <meta name="robots" content="index, follow">
+    <title>About - College Hub ECE</title>
+    <style>
+        :root {
+            --color-primary: #32b8c5;
+            --color-primary-dark: #218a96;
+            --color-accent: #ff6b6b;
+            --color-dark: #1a252f;
+            --color-darker: #0f1419;
+            --color-light: #f8f9fa;
+            --gradient-primary: linear-gradient(135deg, #32b8c5 0%, #218a96 100%);
+            --gradient-dark: linear-gradient(135deg, #1a252f 0%, #0f1419 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--gradient-dark);
+            color: var(--color-light);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(50, 184, 197, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(50px, -50px);
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(26, 37, 47, 0.7);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--color-primary), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin: 40px 0 20px;
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 10px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(50, 184, 197, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .content-box p {
+            color: rgba(248, 249, 250, 0.9);
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        footer {
+            background: rgba(26, 37, 47, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(50, 184, 197, 0.2);
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--color-accent);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            main {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <a href="index.html" class="logo">📚 College Hub</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>📖 About College Hub</h1>
+
+        <h2>Our Mission</h2>
+        <div class="content-box">
+            <p>College Hub - ECE Innovation Center is dedicated to creating a comprehensive platform for Electronics and
+                Communication Engineering students. Our mission is to bridge the gap between theoretical knowledge and
+                practical application by providing quality resources, innovative projects, and collaborative learning
+                opportunities.</p>
+            <p>We believe that education is most effective when students have access to real-world projects, previous
+                year question papers, and a supportive community. Through this platform, we aim to inspire the next
+                generation of engineers and innovators.</p>
+        </div>
+
+        <h2>Our Vision</h2>
+        <div class="content-box">
+            <p>We envision College Hub as the leading resource platform for ECE students globally. Our vision is to
+                create an ecosystem where students can:</p>
+            <ul style="margin: 15px 0 15px 20px; color: rgba(248, 249, 250, 0.9);">
+                <li>Access high-quality educational resources</li>
+                <li>Collaborate on innovative engineering projects</li>
+                <li>Prepare effectively for examinations and placements</li>
+                <li>Build professional networks with peers and mentors</li>
+                <li>Contribute to the advancement of ECE field</li>
+            </ul>
+        </div>
+
+        <h2>What We Offer</h2>
+        <div class="content-box">
+            <p><strong>📚 Educational Resources:</strong> We provide carefully curated previous year question papers,
+                study materials, and reference guides to help students prepare for examinations.</p>
+            <p><strong>💡 Project Showcase:</strong> Our platform features innovative ECE projects including IoT
+                systems, RF engineering applications, analog circuit design, and more. Each project is documented with
+                detailed explanations and technical specifications.</p>
+            <p><strong>🛠️ Technical Tools:</strong> We recommend and provide guidance on industry-standard tools like
+                HFSS, Multisim, ANSYS, and ADS for various engineering applications.</p>
+            <p><strong>🤝 Community Support:</strong> Connect with fellow students, share knowledge, collaborate on
+                projects, and grow together as engineers.</p>
+        </div>
+
+        <h2>About the Founder</h2>
+        <div class="content-box">
+            <p><strong>Ashish Kumar Singh</strong></p>
+            <p>Btech ECE Student with interest in core electronic and development . The idea of this hub was to create
+                something for the department and all the Electronics Students ,not just by some pyqs and other an also
+                by starting san intiative that would help the upcomings batch growth and a new platform to work grow and
+                learn more about themselves and the Electronics world's itself.</p>
+            <!-- <p>:Add the Details </p> -->
+            <ul style="margin: 15px 0 15px 20px; color: rgba(248, 249, 250, 0.9);">
+                <!-- <li>Your educational background and achievements</li> -->
+                <li>Specialization in ECE RF, Digital, Robotics and Internet of things</li>
+                <!-- <li>Your professional experience and internships</li> -->
+                <li>Passion for education and helping others</li>
+                <li>Circuit design and analysis,ADS & HFSS,IOT and Robotics are the strengths</li>
+            </ul>
+        </div>
+
+        <h2>Our Values</h2>
+        <div class="content-box">
+            <p><strong>✓ Quality:</strong> We maintain high standards in all educational content and resources provided
+                on our platform.</p>
+            <p><strong>✓ Innovation:</strong> We encourage creative thinking and implementation of cutting-edge
+                technologies in ECE applications.</p>
+            <p><strong>✓ Accessibility:</strong> We believe quality education should be accessible to all students
+                regardless of background.</p>
+            <p><strong>✓ Integrity:</strong> We uphold academic honesty and ethical practices in all our endeavors.</p>
+            <p><strong>✓ Community:</strong> We foster a collaborative environment where students support and learn from
+                each other.</p>
+        </div>
+
+        <h2>Contact & Connect</h2>
+        <div class="content-box">
+            <p>Have questions or suggestions? We'd love to hear from you! Feel free to reach out through our <a
+                    href="contact.html" style="color: var(--color-primary); text-decoration: underline;">contact
+                    page</a> or connect with us on social media.</p>
+            <p>Follow us on social platforms to stay updated with new resources, project announcements, and community
+                highlights.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div style="margin-bottom: 20px;">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+        <p>&copy; 2025 College Hub - ECE Innovation Center. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

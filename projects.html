@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our innovative ECE projects including IoT systems, RF energy harvesting, and LNA design.">
+    <meta name="robots" content="index, follow">
+    <title>Projects - College Hub ECE</title>
+    <style>
+        :root {
+            --color-primary: #32b8c5;
+            --color-primary-dark: #218a96;
+            --color-accent: #ff6b6b;
+            --color-dark: #1a252f;
+            --color-darker: #0f1419;
+            --color-light: #f8f9fa;
+            --gradient-primary: linear-gradient(135deg, #32b8c5 0%, #218a96 100%);
+            --gradient-dark: linear-gradient(135deg, #1a252f 0%, #0f1419 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--gradient-dark);
+            color: var(--color-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(50, 184, 197, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, -50px); }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(26, 37, 47, 0.7);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--color-primary), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            color: rgba(248, 249, 250, 0.8);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin: 40px 0 20px;
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 10px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(50, 184, 197, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--color-primary);
+            box-shadow: 0 10px 30px rgba(50, 184, 197, 0.2);
+        }
+
+        .project-card h3 {
+            color: var(--color-primary);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: rgba(248, 249, 250, 0.8);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: rgba(50, 184, 197, 0.2);
+            color: var(--color-primary);
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        footer {
+            background: rgba(26, 37, 47, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(50, 184, 197, 0.2);
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--color-accent);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            main {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <a href="index.html" class="logo">📚 College Hub</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>💡 Featured ECE Projects</h1>
+        <p class="intro-text">Explore our innovative projects in Electronics and Communication Engineering. Each project showcases cutting-edge technology and practical engineering principles.</p>
+
+        <h2>Project 1: IoT-Based Weather Monitoring System</h2>
+        <div class="project-card">
+            <h3>📡 Real-Time Environmental Data Collection</h3>
+            <p>This innovative project combines IoT technology with cloud integration to create a comprehensive weather monitoring system. The system captures real-time environmental data including temperature, humidity, pressure, and air quality metrics. Data is transmitted to cloud servers for storage, analysis, and visualization through an intuitive web dashboard.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul style="margin: 10px 0 15px 20px; color: rgba(248, 249, 250, 0.8);">
+                <li>Real-time sensor data collection every 5 minutes</li>
+                <li>Cloud-based data storage and retrieval</li>
+                <li>Web dashboard for live visualization</li>
+                <li>Historical data analysis and trends</li>
+                <li>Alert system for extreme weather conditions</li>
+                <li>Mobile-responsive interface</li>
+            </ul>
+            <p><strong>Technologies Used:</strong></p>
+            <div class="tech-stack">
+                <span class="tech-tag">Arduino Uno</span>
+                <span class="tech-tag">Raspberry Pi</span>
+                <span class="tech-tag">DHT22 Sensor</span>
+                <span class="tech-tag">BMP180 Sensor</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">HTML5/CSS3</span>
+            </div>
+        </div>
+
+        <h2>Project 2: RF Energy Harvesting System</h2>
+        <div class="project-card">
+            <h3>⚡ Ambient Radio Frequency Power Conversion</h3>
+            <p>This groundbreaking project focuses on harvesting energy from ambient radio frequencies in the environment. The system converts otherwise wasted electromagnetic energy into usable DC power that can charge batteries or power low-consumption devices. This technology has applications in remote sensor networks, IoT devices, and sustainable energy systems.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul style="margin: 10px 0 15px 20px; color: rgba(248, 249, 250, 0.8);">
+                <li>Multi-band antenna design for 800MHz to 2.4GHz</li>
+                <li>High-efficiency rectenna circuit</li>
+                <li>Impedance matching network</li>
+                <li>DC power output optimization</li>
+                <li>Efficiency measurement and analysis</li>
+                <li>Prototype testing and validation</li>
+            </ul>
+            <p><strong>Technologies Used:</strong></p>
+            <div class="tech-stack">
+                <span class="tech-tag">HFSS Simulation</span>
+                <span class="tech-tag">RF Design</span>
+                <span class="tech-tag">Rectifier Circuit</span>
+                <span class="tech-tag">Multisim</span>
+                <span class="tech-tag">Schottky Diodes</span>
+                <span class="tech-tag">Network Analyzer</span>
+            </div>
+        </div>
+
+        <h2>Project 3: High-Performance Low Noise Amplifier (LNA)</h2>
+        <div class="project-card">
+            <h3>📶 Ultra-Sensitive Signal Reception System</h3>
+            <p>This project involves the design and implementation of a high-performance Low Noise Amplifier for advanced wireless communication systems. The LNA is specifically optimized to amplify weak signals while minimizing added noise, making it ideal for satellite communications, cellular networks, and radar systems. The design achieves excellent noise figure and gain characteristics across the required frequency band.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul style="margin: 10px 0 15px 20px; color: rgba(248, 249, 250, 0.8);">
+                <li>Ultra-low noise figure (&lt; 0.5 dB)</li>
+                <li>High power gain (20+ dB)</li>
+                <li>Stable operation across temperature range</li>
+                <li>Input/output impedance matching</li>
+                <li>Frequency response optimization</li>
+                <li>PCB layout and manufacturing</li>
+            </ul>
+            <p><strong>Technologies Used:</strong></p>
+            <div class="tech-stack">
+                <span class="tech-tag">HFSS RF Simulation</span>
+                <span class="tech-tag">ADS Circuit Design</span>
+                <span class="tech-tag">Low Noise FET</span>
+                <span class="tech-tag">PCB Design</span>
+                <span class="tech-tag">Multisim</span>
+                <span class="tech-tag">Measurement & Testing</span>
+            </div>
+        </div>
+
+        <h2>Skills Demonstrated</h2>
+        <div class="project-card">
+            <h3>🛠️ Technical Competencies</h3>
+            <p><strong>Programming:</strong> Proficient in C, C++, and Python for embedded systems, algorithm development, and automation.</p>
+            <p><strong>Design Tools:</strong> Experienced with HFSS for electromagnetic simulation, Multisim for circuit design, ANSYS for advanced analysis, and ADS for RF/Microwave design.</p>
+            <p><strong>Hardware Platforms:</strong> Skilled with Arduino, Raspberry Pi, oscilloscopes, network analyzers, and various microcontrollers and development boards.</p>
+            <p><strong>Communication:</strong> Strong ability to document projects, present findings, and collaborate in team environments.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div style="margin-bottom: 20px;">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+        <p>&copy; 2025 College Hub - ECE Innovation Center. All rights reserved.</p>
+    </footer>
+</body>
+</html>

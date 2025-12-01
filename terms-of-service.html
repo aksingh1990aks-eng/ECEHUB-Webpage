@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Service - College Hub ECE Innovation Center">
+    <meta name="robots" content="index, follow">
+    <title>Terms of Service - College Hub ECE</title>
+    <style>
+        :root {
+            --color-primary: #32b8c5;
+            --color-dark: #1a252f;
+            --color-light: #f8f9fa;
+            --gradient-dark: linear-gradient(135deg, #1a252f 0%, #0f1419 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--gradient-dark);
+            color: var(--color-light);
+            line-height: 1.8;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(50, 184, 197, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, -50px); }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(26, 37, 47, 0.7);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: rgba(248, 249, 250, 0.7);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: var(--color-primary);
+            margin: 30px 0 15px;
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 10px;
+        }
+
+        p {
+            color: rgba(248, 249, 250, 0.9);
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            color: rgba(248, 249, 250, 0.9);
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background: rgba(26, 37, 47, 0.8);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(50, 184, 197, 0.2);
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            main {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <a href="index.html" class="logo">📚 College Hub</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>📋 Terms of Service</h1>
+        <p class="last-updated">Last Updated: November 2025</p>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing and using the College Hub website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.</p>
+
+        <h2>2. Use License</h2>
+        <p>Permission is granted to temporarily download one copy of the materials (information or software) on College Hub website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
+        <ul>
+            <li>Modify or copy the materials</li>
+            <li>Use the materials for any commercial purpose or for any public display</li>
+            <li>Attempt to decompile or reverse engineer any software</li>
+            <li>Remove any copyright or other proprietary notations from the materials</li>
+            <li>Transfer the materials to another person or "mirror" the materials on any other server</li>
+            <li>Violate any laws or regulations</li>
+            <li>Engage in harassment, spam, or any form of abuse</li>
+        </ul>
+
+        <h2>3. Disclaimer</h2>
+        <p>The materials on College Hub website are provided on an 'as is' basis. College Hub makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+
+        <h2>4. Limitations of Liability</h2>
+        <p>In no event shall College Hub or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on College Hub's website, even if College Hub or an authorized representative has been notified orally or in writing of the possibility of such damage.</p>
+
+        <h2>5. Accuracy of Materials</h2>
+        <p>The materials appearing on College Hub's website could include technical, typographical, or photographic errors. College Hub does not warrant that any of the materials on its website are accurate, complete, or current. College Hub may make changes to the materials contained on its website at any time without notice.</p>
+
+        <h2>6. Materials License and Access</h2>
+        <p>All materials on College Hub website are provided for educational purposes. Users must:</p>
+        <ul>
+            <li>Use materials only for personal or educational use</li>
+            <li>Not redistribute or sell materials</li>
+            <li>Respect intellectual property rights</li>
+            <li>Provide proper attribution when required</li>
+            <li>Comply with all applicable laws and regulations</li>
+        </ul>
+
+        <h2>7. Limitations on External Links</h2>
+        <p>College Hub is not responsible for the contents of any off-site pages or any other links contained therein. Your use of external links is at your own risk and subject to the terms and conditions of those external websites.</p>
+
+        <h2>8. Modifications</h2>
+        <p>College Hub may revise these terms of service for its website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service.</p>
+
+        <h2>9. Governing Law</h2>
+        <p>These terms and conditions are governed by and construed in accordance with the laws of India, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
+
+        <h2>10. User Content and Conduct</h2>
+        <p>Users agree not to post, transmit, or distribute any unlawful, harassing, defamatory, abusive, threatening, harmful, vulgar, obscene, or otherwise objectionable material. College Hub reserves the right to remove any user content that violates these terms.</p>
+
+        <h2>11. Intellectual Property Rights</h2>
+        <p>All content on College Hub website, including text, graphics, logos, images, and software, is the property of College Hub or its content suppliers and is protected by international copyright laws. Unauthorized reproduction is prohibited.</p>
+
+        <h2>12. Google AdSense</h2>
+        <p>Our website uses Google AdSense to display advertisements. By using this website, you agree to the Google AdSense terms and privacy policies. Please review Google's policies for more information.</p>
+
+        <h2>13. Educational Content Disclaimer</h2>
+        <p>While we strive to provide accurate and helpful educational content, College Hub does not guarantee the accuracy or completeness of information provided. Users should verify information independently and seek professional advice when necessary.</p>
+
+        <h2>14. Non-Liability for User Actions</h2>
+        <p>College Hub is not responsible for:</p>
+        <ul>
+            <li>How users utilize the resources and materials provided</li>
+            <li>Academic or professional outcomes resulting from using this website</li>
+            <li>Any damages or losses incurred by users</li>
+            <li>Third-party actions or content</li>
+        </ul>
+
+        <h2>15. Termination</h2>
+        <p>College Hub reserves the right to terminate access to the website for users who violate these terms of service. Termination is effective immediately upon notice.</p>
+
+        <h2>16. Contact Information</h2>
+        <p>If you have any questions about these Terms of Service, please contact us at:</p>
+        <ul>
+            <li>Email: aksingh1990aks@gmail.com</li>
+            <li>Website: <a href="index.html" style="color: var(--color-primary);">College Hub</a></li>
+        </ul>
+
+        <p style="margin-top: 40px; font-style: italic; color: rgba(248, 249, 250, 0.7);">These Terms of Service were last updated in November 2025 and are effective immediately.</p>
+    </main>
+
+    <footer>
+        <div style="margin-bottom: 20px;">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+        <p>&copy; 2025 College Hub - ECE Innovation Center. All rights reserved.</p>
+    </footer>
+</body>
+</html>

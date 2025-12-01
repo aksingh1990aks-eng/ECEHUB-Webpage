@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TTH15H3XJ8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TTH15H3XJ8');
+    </script>
+    <meta name="google-site-verification" content="OZbOKN_Z2v3UoLUC0zNAElKLHyc8aePuPbS3P6lcH8k" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="College Hub - ECE Innovation Center. Explore cutting-edge electronics projects, resources, and previous year question papers for engineering students.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#32b8c5">
+    <meta property="og:title" content="College Hub - ECE Innovation Center">
+    <meta property="og:description" content="Innovative projects and solutions in Electronics and Communication Engineering">
+    <meta property="og:type" content="website">
+    <title>College Hub - ECE Innovation Center</title>
+    <style>
+        :root {
+            --color-primary: #32b8c5;
+            --color-primary-dark: #218a96;
+            --color-accent: #ff6b6b;
+            --color-dark: #1a252f;
+            --color-darker: #0f1419;
+            --color-light: #f8f9fa;
+            --color-card: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #32b8c5 0%, #218a96 100%);
+            --gradient-dark: linear-gradient(135deg, #1a252f 0%, #0f1419 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--gradient-dark);
+            color: var(--color-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute; width: 200%; height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(50, 184, 197, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, -50px); }
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(26, 37, 47, 0.7);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(50, 184, 197, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--color-primary), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: rgba(248, 249, 250, 0.8);
+            margin-bottom: 30px;
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Titles */
+        h2 {
+            font-size: 32px;
+            margin: 40px 0 20px;
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 10px;
+        }
+
+        /* Cards Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(50, 184, 197, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--color-primary);
+            box-shadow: 0 10px 30px rgba(50, 184, 197, 0.2);
+        }
+
+        .card h3 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: rgba(248, 249, 250, 0.8);
+            margin-bottom: 10px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: rgba(50, 184, 197, 0.2);
+            color: var(--color-primary);
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        /* PYQ Section - Enhanced */
+        .pyq-section {
+            background: linear-gradient(135deg, rgba(50, 184, 197, 0.08) 0%, rgba(255, 107, 107, 0.05) 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .pyq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .semester-group {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(50, 184, 197, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .semester-group:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--color-primary);
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(50, 184, 197, 0.3);
+        }
+
+        .semester-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .subject-item {
+            background: rgba(50, 184, 197, 0.1);
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-primary);
+            transition: all 0.2s;
+        }
+
+        .subject-item:hover {
+            background: rgba(50, 184, 197, 0.2);
+            transform: translateX(5px);
+        }
+
+        .subject-item strong {
+            color: var(--color-primary);
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.3s;
+            margin-top: 8px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(50, 184, 197, 0.4);
+        }
+
+        /* ---------- ADDED: Styles used by the copied PYQs section (keeps visuals consistent) ---------- */
+        .semesters-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+        .semester-card {
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+            border-radius: 20px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s ease;
+        }
+        .semester-card:hover { transform: translateY(-8px); border-color: var(--color-primary); }
+        .semester-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 2px solid rgba(50, 184, 197, 0.2); padding-bottom: 1rem; }
+        .semester-icon { font-size: 2.5rem; }
+        .semester-card h3 { font-size: 1.5rem; color: var(--color-primary); margin: 0; }
+        
+        .subjects-list { display: flex; flex-direction: column; gap: 1rem; }
+        .subject-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem; background: rgba(255, 255, 255, 0.03); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease;
+        }
+        .subject-item:hover { background: rgba(50, 184, 197, 0.1); border-color: rgba(50, 184, 197, 0.3); transform: translateX(5px); }
+        .download-btn {
+            padding: 0.5rem 1rem; background: var(--gradient-primary); color: white;
+            border: none; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.3s ease;
+        }
+        .download-btn:hover { transform: scale(1.05); }
+
+        /* Modal */
+        .papers-modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9); z-index: 2000; overflow-y: auto;
+        }
+        .papers-modal.active { display: flex; justify-content: center; align-items: center; padding: 2rem; }
+        .papers-content {
+            background: var(--gradient-dark); border: 2px solid var(--color-primary);
+            border-radius: 20px; padding: 2.5rem; max-width: 800px; width: 100%; max-height: 85vh;
+            overflow-y: auto; position: relative; box-shadow: 0 10px 50px rgba(50, 184, 197, 0.4);
+            animation: slideUp 0.4s ease;
+        }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .papers-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 2px solid var(--color-primary); padding-bottom: 1rem; }
+        .papers-header h2 { font-size: 1.8rem; color: var(--color-primary); margin: 0; }
+        .close-modal {
+            background: transparent; border: 2px solid var(--color-accent); color: var(--color-accent);
+            font-size: 1.5rem; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
+        }
+        .close-modal:hover { background: var(--color-accent); color: white; transform: rotate(90deg); }
+
+        .year-section { margin-bottom: 2rem; }
+        .year-header {
+            background: rgba(50, 184, 197, 0.15); padding: 1rem 1.5rem;
+            border-radius: 10px; border-left: 4px solid var(--color-primary); margin-bottom: 1rem;
+        }
+        .year-header h3 { color: var(--color-primary); margin: 0; font-size: 1.3rem; }
+        
+        .paper-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 1.5rem; background: rgba(255, 255, 255, 0.03); border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 0.8rem; transition: all 0.3s ease;
+        }
+        .paper-item:hover { background: rgba(50, 184, 197, 0.1); transform: translateX(5px); }
+        .paper-download-btn {
+            padding: 0.6rem 1.2rem; background: var(--gradient-primary); color: white;
+            border: none; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
+        }
+        .paper-download-btn:hover { transform: scale(1.05); }
+
+        /* Footer */
+        footer {
+            background: rgba(26, 37, 47, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(50, 184, 197, 0.2);
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-section {
+            margin: 20px 0;
+        }
+
+        .footer-section p {
+            color: rgba(248, 249, 250, 0.7);
+        }
+
+        /* Fade-in helpers (copied from ECE HUB) */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            main {
+                padding: 20px 10px;
+            }
+
+            .pyq-section {
+                padding: 20px;
+            }
+        }
+
+        /* AdSense Ready */
+        .ad-container {
+            margin: 30px 0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(50, 184, 197, 0.2);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="logo">📚 College Hub</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>🚀 College Hub - ECE Innovation Center</h1>
+        <p>Building the future with cutting-edge technology and innovation</p>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- AdSense Ad Space -->
+        <div class="ad-container">
+            <!-- PASTE YOUR ADSENSE CODE HERE (300x250 or 728x90) -->
+        </div>
+
+        <!-- Projects Section -->
+        <section>
+            <h2>💡 Featured Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>📡 IoT Weather Monitoring System</h3>
+                    <p>Real-time data logging and cloud integration for comprehensive environmental monitoring and analysis.</p>
+                    <span class="card-tag">Arduino</span>
+                    <span class="card-tag">IoT</span>
+                    <span class="card-tag">Cloud</span>
+                </div>
+                <div class="card">
+                    <h3>⚡ RF Energy Harvesting</h3>
+                    <p>Advanced system that converts ambient radio waves into usable DC power for sustainable energy applications.</p>
+                    <span class="card-tag">RF Design</span>
+                    <span class="card-tag">HFSS</span>
+                    <span class="card-tag">Power Systems</span>
+                </div>
+                <div class="card">
+                    <h3>📶 High-Performance LNA Design</h3>
+                    <p>Low Noise Amplifier design optimized for wireless communication systems with superior gain characteristics.</p>
+                    <span class="card-tag">Analog</span>
+                    <span class="card-tag">RF</span>
+                    <span class="card-tag">Communication</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2>🛠️ Technical Skills</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Programming Languages</h3>
+                    <p><strong>C, C++, Python</strong> - For embedded systems, algorithm development, and automation.</p>
+                </div>
+                <div class="card">
+                    <h3>Design Tools</h3>
+                    <p><strong>HFSS, Multisim, ANSYS, ADS</strong> - Advanced simulation and design software.</p>
+                </div>
+                <div class="card">
+                    <h3>Hardware Platforms</h3>
+                    <p><strong>Arduino, Raspberry Pi</strong> - Microcontroller and embedded system development.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- REPLACED: PYQ Section copied from index (2).html -->
+        <section id="pyqs" class="fade-in">
+            <div class="section-header">
+                <h2>Previous Year Questions</h2>
+                
+            </div>
+
+            <div class="semesters-container">
+                <div class="semester-card">
+                    <div class="semester-header"><div class="semester-icon">📘</div><h3>Semester 1</h3></div>
+                    <div class="subjects-list">
+                        <div class="subject-item"><span class="subject-name">CT-1</span><button class="download-btn" onclick="openPapers('sem1', 'ct1')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">CT-2</span><button class="download-btn" onclick="openPapers('sem1', 'ct2')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">END SEM</span><button class="download-btn" onclick="openPapers('sem1', 'end')">➡️ View Papers</button></div>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <div class="semester-header"><div class="semester-icon">📗</div><h3>Semester 2</h3></div>
+                    <div class="subjects-list">
+                        <div class="subject-item"><span class="subject-name">CT-1</span><button class="download-btn" onclick="openPapers('sem2', 'ct1')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">CT-2</span><button class="download-btn" onclick="openPapers('sem2', 'ct2')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">END SEM</span><button class="download-btn" onclick="openPapers('sem2', 'end')">➡️ View Papers</button></div>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <div class="semester-header"><div class="semester-icon">📙</div><h3>Semester 3</h3></div>
+                    <div class="subjects-list">
+                        <div class="subject-item"><span class="subject-name">CT-1</span><button class="download-btn" onclick="openPapers('sem3', 'ct1')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">CT-2</span><button class="download-btn" onclick="openPapers('sem3', 'ct2')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">END SEM</span><button class="download-btn" onclick="openPapers('sem3', 'end')">➡️ View Papers</button></div>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <div class="semester-header"><div class="semester-icon">📕</div><h3>Semester 4</h3></div>
+                    <div class="subjects-list">
+                        <div class="subject-item"><span class="subject-name">CT-1</span><button class="download-btn" onclick="openPapers('sem4', 'ct1')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">CT-2</span><button class="download-btn" onclick="openPapers('sem4', 'ct2')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">END SEM</span><button class="download-btn" onclick="openPapers('sem4', 'end')">➡️ View Papers</button></div>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <div class="semester-header"><div class="semester-icon">📔</div><h3>Semester 5</h3></div>
+                    <div class="subjects-list">
+                        <div class="subject-item"><span class="subject-name">CT-1</span><button class="download-btn" onclick="openPapers('sem5', 'ct1')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">CT-2</span><button class="download-btn" onclick="openPapers('sem5', 'ct2')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">END SEM</span><button class="download-btn" onclick="openPapers('sem5', 'end')">➡️ View Papers</button></div>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <div class="semester-header"><div class="semester-icon">📓</div><h3>Semester 6</h3></div>
+                    <div class="subjects-list">
+                        <div class="subject-item"><span class="subject-name">CT-1</span><button class="download-btn" onclick="openPapers('sem6', 'ct1')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">CT-2</span><button class="download-btn" onclick="openPapers('sem6', 'ct2')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">END SEM</span><button class="download-btn" onclick="openPapers('sem6', 'end')">➡️ View Papers</button></div>
+                    </div>
+                </div>
+
+                <div class="semester-card">
+                    <div class="semester-header"><div class="semester-icon">📚</div><h3>Semester 7</h3></div>
+                    <div class="subjects-list">
+                        <div class="subject-item"><span class="subject-name">CT-1</span><button class="download-btn" onclick="openPapers('sem7', 'ct1')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">CT-2</span><button class="download-btn" onclick="openPapers('sem7', 'ct2')">➡️ View Papers</button></div>
+                        <div class="subject-item"><span class="subject-name">END SEM</span><button class="download-btn" onclick="openPapers('sem7', 'end')">➡️ View Papers</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END copied PYQs section -->
+
+        <!-- Static papers modal (hidden) - reused by openPapers() -->
+        <div id="papersModal" class="papers-modal" aria-hidden="true">
+            <div class="papers-content" role="dialog" aria-modal="true" aria-labelledby="papersTitle">
+                <div class="papers-header">
+                    <h2 id="papersTitle" class="papers-title"></h2>
+                    <button class="close-modal" onclick="closeModal()">✕</button>
+                </div>
+                <div class="papers-body"></div>
+            </div>
+        </div>
+
+        <!-- Privacy modal (non-intrusive) -->
+        <div id="privacyModal" class="papers-modal" aria-hidden="true" style="z-index:2500;">
+            <div class="papers-content" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+                <div class="papers-header">
+                    <h2 id="privacyTitle" style="color:var(--color-primary); margin:0;">Privacy Policy (Summary)</h2>
+                    <button class="close-modal" onclick="closePrivacy()">✕</button>
+                </div>
+                <div style="margin-top:1rem; color:var(--color-light);">
+                    <p>This site uses cookies and similar technologies for analytics and advertising. Ads may be delivered by third parties such as Google AdSense. Replace with your full privacy policy page for production.</p>
+                    <p><a href="privacy-policy.html" style="color:var(--color-primary)">Read full Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AdSense Ad Space -->
+        <div class="ad-container">
+            <!-- PASTE YOUR ADSENSE CODE HERE (300x250 or 728x90) -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section">
+            <h3 style="color: var(--color-primary); margin-bottom: 15px;">Quick Links</h3>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="disclaimer.html">Disclaimer</a>
+        </div>
+        <div class="footer-section">
+            <h3 style="color: var(--color-primary); margin-bottom: 15px;">Connect With Us</h3>
+            <a href="PASTE HERE">Youtube</a>
+            <a href="https://www.linkedin.com/in/ashish-kumar-singh-8a91a3385/">LinkedIn</a>
+            <a href="https://github.com/aksingh1990aks-eng">GitHub</a>
+            <a href="mailto:aksingh1990aks@gmail.com">Email</a>
+        </div>
+        <div class="footer-section">
+            <p>&copy; 2025 College Hub - ECE Innovation Center. All rights reserved.</p>
+            <p>Designed for students by students. Committed to quality education and innovation.</p>
+        </div>
+    </footer>
+
+    <!-- ADD: JS required for the copied PYQs section to function -->
+    <script>
+    // Minimal fileLinks + modal helpers (copied from source). Fill fileLinks entries as needed.
+    const fileLinks = {
+        //Sem 1
+        // CT-1
+        'sem1_ct1_25-26_Question Paper': 'https://drive.google.com/file/d/1Kdf0_7ve8S8y3LEvmLfIQFXykEhseQr2/view?usp=sharing',
+        'sem1_ct1_24-25_Question Paper': 'https://drive.google.com/file/d/1LfHilfec3KL0PV5AO-cN-R9ZjB7OmftG/view?usp=sharing',
+        'sem1_ct1_23-24_Question Paper': 'https://drive.google.com/file/d/1AcrJqTd920UPJy6eeToVVZYh6ZzN2252/view?usp=sharing',
+        'sem1_ct1_22-23_Question Paper': 'https://drive.google.com/file/d/1eHA8Nf7p_396ONGv50nSyd_GAw40VZ4i/view?usp=sharing',
+        //CT-2
+        'sem1_ct2_25-26_Question Paper': '',
+        'sem1_ct2_24-25_Question Paper': 'https://drive.google.com/file/d/11FAidtXtWlmVnm5QzlvXXgtGCthqgSMF/view?usp=sharing',
+        'sem1_ct2_23-24_Question Paper': 'https://drive.google.com/file/d/1XW1A41jBe4Fn-pf-gWy26XmAGLq2yDhL/view?usp=sharing',
+        'sem1_ct2_22-23_Question Paper': 'https://drive.google.com/file/d/1hNLt75XCOhNyLN50_eJuU5IUkVVkbPmL/view?usp=sharing',
+        //End Sem
+        'sem1_end_22-23_Question Paper': '',
+        'sem1_end_23-24_Question Paper': '',
+        'sem1_end_24-25_Question Paper': 'https://drive.google.com/file/d/1h8vj_WgV9oraBIsvD-LWdYQ9thzdhFeT/view?usp=sharing',
+        'sem1_end_25-26_Question Paper': '',
+        //Sem-2
+        //CT-1
+        'sem2_ct1_25-26_Question Paper': '',
+        // add more keys as you upload files
+    };
+
+    function openPapers(semester, examType) {
+        const semesterNames = { sem1: 'Semester 1', sem2: 'Semester 2', sem3: 'Semester 3', sem4: 'Semester 4', sem5: 'Semester 5', sem6: 'Semester 6', sem7: 'Semester 7' };
+        const examTypeNames = { ct1: 'CT-1', ct2: 'CT-2', end: 'END SEM' };
+        const semesterName = semesterNames[semester] || semester.toUpperCase();
+        const examTypeName = examTypeNames[examType] || examType.toUpperCase();
+
+        const modal = document.getElementById('papersModal');
+        const titleEl = modal.querySelector('.papers-title');
+        const bodyEl = modal.querySelector('.papers-body');
+
+        const yearsData = [{ year: '25-26' }, { year: '24-25' }, { year: '23-24' }, { year: '22-23' }];
+        let yearsHTML = '';
+        yearsData.forEach(yearData => {
+            yearsHTML += `
+                <div class="year-section">
+                    <div class="year-header">
+                        <h3>📅 ${yearData.year}</h3>
+                    </div>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Question Paper</div>
+                            <div class="paper-meta">${yearData.year} ${examTypeName}</div>
+                        </div>
+                        <button class="paper-download-btn" onclick="downloadFile('${semester}', '${examType}', '${yearData.year}')">📥 Download</button>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Populate and show the static modal
+        titleEl.textContent = `${semesterName} - ${examTypeName}`;
+        bodyEl.innerHTML = yearsHTML;
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('papersModal');
+        if (modal) {
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            const bodyEl = modal.querySelector('.papers-body');
+            if (bodyEl) bodyEl.innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    function downloadFile(semester, examType, year) {
+        const key = `${semester}_${examType}_${year}_Question Paper`;
+        const fileURL = fileLinks[key];
+        if (fileURL && fileURL.length > 0) {
+            window.open(fileURL, '_blank');
+        } else {
+            console.log(`Missing link for key: ${key}`);
+            alert(`The question paper for ${semester.toUpperCase()} ${examType.toUpperCase()} (${year}) has not been uploaded yet.\n\n(Key: ${key})`);
+        }
+    }
+
+    document.addEventListener('click', function(event) {
+        const modal = document.getElementById('papersModal');
+        if (modal && event.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') closeModal();
+    });
+
+    // Smooth scroll for internal anchors (non-intrusive)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            // allow links that are just "#" to behave normally
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // IntersectionObserver for .fade-in elements (so copied section animates like source)
+    (function() {
+        const fadeEls = document.querySelectorAll('.fade-in');
+        if ('IntersectionObserver' in window && fadeEls.length) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            fadeEls.forEach(el => observer.observe(el));
+        } else {
+            // Fallback: reveal immediately
+            fadeEls.forEach(el => el.classList.add('visible'));
+        }
+    })();
+
+    // Privacy modal open/close (uses #privacyModal)
+    (function() {
+        // if you'd like a footer trigger that opens the modal, add an element with id="privacyLink"
+        const privacyLink = document.querySelector('a[href="privacy-policy.html"]'); // existing footer link
+        const privacyModal = document.getElementById('privacyModal');
+        function openPrivacy(e) {
+            if (e) e.preventDefault();
+            if (privacyModal) {
+                privacyModal.classList.add('active');
+                privacyModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        function attach() {
+            // attach open handler when user Ctrl+clicks or wants inline preview:
+            if (privacyLink) {
+                // keep default navigation when Ctrl/Meta is used to open in new tab
+                privacyLink.addEventListener('click', function(e) {
+                    // If user wants to open the dedicated page in same tab, allow; else open modal
+                    // If link is clicked with modifier, keep default
+                    if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+                    // Otherwise, open inline modal for quick preview
+                    openPrivacy(e);
+                });
+            }
+        }
+        function closePrivacy() {
+            if (privacyModal) {
+                privacyModal.classList.remove('active');
+                privacyModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = 'auto';
+            }
+        }
+        // expose close function used by modal button
+        window.closePrivacy = closePrivacy;
+        attach();
+        // close on backdrop / ESC
+        document.addEventListener('click', function(ev) {
+            if (privacyModal && ev.target === privacyModal) closePrivacy();
+        });
+        document.addEventListener('keydown', function(ev) { if (ev.key === 'Escape') closePrivacy(); });
+    })();
+    </script>
+</body>
+</html>

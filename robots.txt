@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: eceinfos.com/sitemap.xml
+
+# AdSense crawling
+User-agent: Mediapartners-Google
+Allow: /

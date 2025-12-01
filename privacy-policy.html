@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy - College Hub ECE Innovation Center">
+    <meta name="robots" content="index, follow">
+    <title>Privacy Policy - College Hub ECE</title>
+    <style>
+        :root {
+            --color-primary: #32b8c5;
+            --color-dark: #1a252f;
+            --color-light: #f8f9fa;
+            --gradient-dark: linear-gradient(135deg, #1a252f 0%, #0f1419 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--gradient-dark);
+            color: var(--color-light);
+            line-height: 1.8;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(50, 184, 197, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, -50px); }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(26, 37, 47, 0.7);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: rgba(248, 249, 250, 0.7);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: var(--color-primary);
+            margin: 30px 0 15px;
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 10px;
+        }
+
+        p {
+            color: rgba(248, 249, 250, 0.9);
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            color: rgba(248, 249, 250, 0.9);
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background: rgba(26, 37, 47, 0.8);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(50, 184, 197, 0.2);
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            main {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <a href="index.html" class="logo">📚 College Hub</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>🔒 Privacy Policy</h1>
+        <p class="last-updated">Last Updated: November 2025</p>
+
+        <h2>1. Introduction</h2>
+        <p>College Hub - ECE Innovation Center ("we," "us," "our," or "Company") operates the website. This Privacy Policy explains our online information practices and the choices you can make about the way your information is collected and used.</p>
+
+        <h2>2. Information We Collect</h2>
+        <p>We collect information you voluntarily provide when:</p>
+        <ul>
+            <li>Filling out contact forms</li>
+            <li>Subscribing to our newsletter</li>
+            <li>Downloading resources or question papers</li>
+            <li>Participating in surveys or feedback</li>
+            <li>Using our website and services</li>
+        </ul>
+        <p>Information we automatically collect includes:</p>
+        <ul>
+            <li>IP address and device information</li>
+            <li>Browser type and version</li>
+            <li>Pages visited and time spent</li>
+            <li>Cookies and tracking data</li>
+            <li>Analytics information through Google Analytics</li>
+        </ul>
+
+        <h2>3. Google Analytics and Advertising</h2>
+        <p>Our website uses Google Analytics to understand how visitors use our site. This includes:</p>
+        <ul>
+            <li>Tracking user behavior and engagement</li>
+            <li>Understanding traffic sources</li>
+            <li>Measuring website performance</li>
+            <li>Personalizing user experience</li>
+        </ul>
+        <p>We use Google AdSense to display advertisements on our website. Google may use cookies and other technologies to serve ads based on your previous visits to our website and other websites.</p>
+
+        <h2>4. How We Use Your Information</h2>
+        <p>We use collected information for:</p>
+        <ul>
+            <li>Providing and improving our services</li>
+            <li>Responding to your inquiries</li>
+            <li>Sending educational updates and resources</li>
+            <li>Analyzing website usage and trends</li>
+            <li>Personalizing user experience</li>
+            <li>Complying with legal obligations</li>
+            <li>Displaying relevant advertisements</li>
+        </ul>
+
+        <h2>5. Third-Party Services</h2>
+        <p>Our website uses third-party services that may collect information about you:</p>
+        <ul>
+            <li><strong>Google Analytics:</strong> Tracks website usage and user behavior</li>
+            <li><strong>Google AdSense:</strong> Displays personalized advertisements</li>
+            <li><strong>Contact Forms:</strong> Third-party form handlers (if applicable)</li>
+            <li><strong>Social Media:</strong> Links to social platforms</li>
+        </ul>
+        <p>Please review the privacy policies of these third-party services for more information.</p>
+
+        <h2>6. Cookies and Tracking Technologies</h2>
+        <p>We use cookies to:</p>
+        <ul>
+            <li>Remember your preferences</li>
+            <li>Understand how you use our site</li>
+            <li>Serve personalized advertisements</li>
+            <li>Analyze website performance</li>
+        </ul>
+        <p>You can control cookies through your browser settings. Disabling cookies may affect the functionality of some features on our website.</p>
+
+        <h2>7. Data Security</h2>
+        <p>We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, and misuse. However, no method of transmission over the internet or electronic storage is completely secure.</p>
+
+        <h2>8. Data Retention</h2>
+        <p>We retain your personal information only for as long as necessary to provide our services or as required by law. You can request deletion of your information at any time by contacting us.</p>
+
+        <h2>9. Children's Privacy</h2>
+        <p>Our website is not directed to children under 13 years of age. We do not knowingly collect personal information from children. If we become aware that we have collected information from a child under 13, we will take steps to delete such information immediately.</p>
+
+        <h2>10. Your Rights and Choices</h2>
+        <p>You have the right to:</p>
+        <ul>
+            <li>Access the personal information we hold about you</li>
+            <li>Request correction of inaccurate information</li>
+            <li>Request deletion of your information</li>
+            <li>Opt-out of marketing communications</li>
+            <li>Disable cookies in your browser</li>
+            <li>Opt-out of Google Analytics tracking</li>
+        </ul>
+
+        <h2>11. International Data Transfers</h2>
+        <p>Your information may be transferred to and stored in countries other than your country of residence. These countries may have data protection laws that are different from your home country. By using our website, you consent to the transfer of your information to countries outside your country of residence.</p>
+
+        <h2>12. Links to Other Websites</h2>
+        <p>Our website contains links to third-party websites. We are not responsible for the privacy practices of these external sites. Please review their privacy policies before providing any personal information.</p>
+
+        <h2>13. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last Updated" date. Your continued use of the website indicates your acceptance of the updated Privacy Policy.</p>
+
+        <h2>14. Contact Us</h2>
+        <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:</p>
+        <ul>
+            <li>Email: aksingh1990aks@gmail.com</li>
+            <li>Address: Guru Ghasidas Vishwavidyalaya, Koni, Bilaspur, Chhattisgarh, India, 495009</li>
+            <li>Website: <a href="index.html" style="color: var(--color-primary);">College Hub</a></li>
+        </ul>
+
+        <h2>15. Legal Compliance</h2>
+        <p>This Privacy Policy complies with applicable privacy laws and regulations including GDPR, CCPA, and other data protection regulations. We are committed to protecting your privacy rights and personal information.</p>
+
+        <p style="margin-top: 40px; font-style: italic; color: rgba(248, 249, 250, 0.7);">This Privacy Policy was last updated in November 2025 and is effective immediately.</p>
+    </main>
+
+    <footer>
+        <div style="margin-bottom: 20px;">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+        <p>&copy; 2025 College Hub - ECE Innovation Center. All rights reserved.</p>
+    </footer>
+</body>
+</html>
