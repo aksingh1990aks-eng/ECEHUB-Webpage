@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - ECE Department</title>
+    <style>
+        /* CORE STYLES - UNTOUCHED */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0066CC; --secondary: #00A8E8; --accent: #FFC300;
+            --dark-bg: #0A0E27; --card-bg: #1A1F3A; --text-primary: #FFFFFF;
+            --text-secondary: #B0B8D4; --border: #2D3561;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1f3a 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: rgba(26, 31, 58, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 2rem;
+            border-bottom: 2px solid var(--border);
+            position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 102, 204, 0.1);
+        }
+        nav .nav-container {
+            max-width: 1200px; margin: 0 auto; display: flex;
+            justify-content: space-between; align-items: center;
+        }
+        nav .logo {
+            font-size: 1.8rem; font-weight: bold;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        nav a {
+            color: var(--text-secondary); text-decoration: none; margin-left: 2rem;
+            transition: all 0.3s ease; font-weight: 500;
+        }
+        nav a:hover, nav a.active {
+            color: var(--accent); text-shadow: 0 0 10px rgba(255, 195, 0, 0.3);
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center; padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.1), rgba(0, 168, 232, 0.1));
+            border-bottom: 2px solid var(--border);
+        }
+        .header h1 {
+            font-size: 3rem; margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: slideInDown 0.8s ease;
+        }
+        .header p { font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+
+        /* FILTERS */
+        .filter-section {
+            max-width: 1200px; margin: 2rem auto; padding: 0 2rem;
+            display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+        }
+        .filter-btn {
+            padding: 0.6rem 1.5rem; border: 2px solid var(--border);
+            background: transparent; color: var(--text-secondary);
+            border-radius: 50px; cursor: pointer; transition: all 0.3s ease;
+            font-weight: 600; font-size: 0.95rem;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--secondary); color: var(--dark-bg);
+            border-color: var(--secondary); transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 168, 232, 0.3);
+        }
+
+        /* ANNOUNCEMENTS */
+        .announcements-container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .announcements-list { display: flex; flex-direction: column; gap: 1.5rem; animation: fadeIn 0.8s ease; }
+        
+        .announcement-card {
+            background: var(--card-bg); border-left: 5px solid var(--secondary);
+            border-radius: 10px; padding: 2rem; transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            cursor: pointer; position: relative; overflow: hidden;
+            animation: slideInLeft 0.6s ease forwards; opacity: 0;
+        }
+        .announcement-card:hover {
+            border-left-color: var(--accent); transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0, 168, 232, 0.2);
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.95), rgba(0, 102, 204, 0.05));
+        }
+
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+        .card-icon { font-size: 2.5rem; animation: pulse 2s ease-in-out infinite; }
+        
+        .priority-badge {
+            display: inline-block; padding: 0.5rem 1.2rem; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .priority-urgent { background: #FF6B6B; color: #fff; box-shadow: 0 0 15px rgba(255, 107, 107, 0.3); }
+        .priority-high { background: #FFD93D; color: #000; }
+        .priority-medium { background: #4ECDC4; color: #000; }
+        .priority-low { background: #95E1D3; color: #000; }
+
+        .card-date { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .card-date::before { content: '📅'; }
+        
+        .card-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; color: var(--accent); line-height: 1.3; }
+        .card-description { color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; font-size: 1rem; }
+        
+        .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.9rem; }
+        .read-more { color: var(--secondary); font-weight: 600; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem; }
+        .read-more:hover { color: var(--accent); transform: translateX(5px); }
+        .posted-time { color: var(--text-secondary); font-size: 0.85rem; }
+
+        /* ANIMATIONS */
+        @keyframes slideInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .announcement-card:nth-child(1) { animation-delay: 0.1s; }
+        .announcement-card:nth-child(2) { animation-delay: 0.2s; }
+        .announcement-card:nth-child(3) { animation-delay: 0.3s; }
+        
+        /* FOOTER & STATES */
+        footer { background: rgba(26, 31, 58, 0.95); border-top: 2px solid var(--border); padding: 2rem; margin-top: 4rem; text-align: center; color: var(--text-secondary); }
+        footer a { color: var(--secondary); text-decoration: none; transition: color 0.3s ease; }
+        footer a:hover { color: var(--accent); }
+        .empty-state { text-align: center; padding: 4rem 2rem; color: var(--text-secondary); }
+        .empty-state-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .hidden { display: none !important; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            nav .nav-container { flex-direction: column; gap: 1rem; }
+            nav a { margin-left: 0; }
+            .filter-section { flex-direction: column; }
+            .filter-btn { width: 100%; }
+            .announcement-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🏠 ECE DEPT</a>
+            <div>
+                <a href="index.html">Home</a>
+                <a href="#" class="active">Announcements</a>
+                <!-- Admin link will prompt for password before opening the admin URL -->
+                <a id="adminLogin" href="#" data-admin-link="https://docs.google.com/spreadsheets" style="margin-left:1rem; font-weight:700;">Admin Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="header">
+        <h1>📢 Important Announcements</h1>
+        <p>Critical updates and important information for all ECE students</p>
+    </div>
+
+    <div class="filter-section">
+        <button class="filter-btn active" data-filter="all">All Announcements</button>
+        <button class="filter-btn" data-filter="urgent">🔴 Urgent</button>
+        <button class="filter-btn" data-filter="high">🟠 High Priority</button>
+        <button class="filter-btn" data-filter="medium">🟡 Medium</button>
+        <button class="filter-btn" data-filter="low">🟢 Low Priority</button>
+    </div>
+
+    <div class="announcements-container">
+        <div class="announcements-list" id="announcementsList">
+            <div style="text-align:center; color:white;">Loading announcements...</div>
+        </div>
+        <div id="emptyState" class="empty-state hidden">
+            <div class="empty-state-icon">📭</div>
+            <p>No announcements for this priority level.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ECE Department. All rights reserved.</p>
+        <p><a href="index.html">Back to Home</a></p>
+    </footer>
+
+    <!-- Admin password modal (client-side) -->
+    <div id="adminModal" class="hidden" aria-hidden="true" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:2000;">
+        <div style="background:linear-gradient(180deg, rgba(10,14,39,0.97), rgba(26,31,58,0.98)); border:1px solid rgba(255,255,255,0.06); padding:1.6rem; border-radius:12px; width:92%; max-width:420px; box-shadow:0 10px 40px rgba(0,0,0,0.6); color:var(--text-primary);">
+            <h3 style="margin-bottom:6px; font-size:1.2rem;">🔐 Admin access</h3>
+            <p style="margin-bottom:12px; color:var(--text-secondary); font-size:0.95rem;">Enter the admin password to continue.</p>
+            <input id="adminPasswordInput" type="password" placeholder="Password" style="width:100%; padding:0.6rem 0.8rem; border-radius:8px; border:1px solid var(--border); background:transparent; color:var(--text-primary); margin-bottom:8px; outline:none;" />
+            <div style="display:flex; gap:8px; justify-content:flex-end; align-items:center;">
+                <small id="adminMsg" style="color:#FFBABA; margin-right:auto; font-size:0.85rem; visibility:hidden;"> </small>
+                <button id="adminCancelBtn" style="padding:0.45rem 0.9rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--text-secondary); cursor:pointer;">Cancel</button>
+                <button id="adminSubmitBtn" style="padding:0.45rem 0.9rem; border-radius:8px; border:none; background:var(--secondary); color:var(--dark-bg); font-weight:700; cursor:pointer;">Login</button>
+            </div>
+            <div id="adminLockInfo" style="margin-top:8px; font-size:0.85rem; color:var(--text-secondary); display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        // -------------------------------------------------------------
+        // CONFIGURATION
+        // -------------------------------------------------------------
+        // PASTE YOUR GOOGLE SHEET CSV LINK HERE
+        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQEy-pSav0jIUh6-n2i5r-FqQC8p5ir9MxMI2ksFBNv44sTX6MOkVtc9_iP7cdJDFRsNyn5a6HLNCex/pub?output=csv'; 
+
+            // HOW TO STORE ADMIN PASSWORDS IN SHEET (recommended to avoid clashes):
+            // - Create a dedicated row and set one (or both) of the following columns:
+            //     - "is_admin" = yes/true/1  OR  "role" = admin  OR  title = admin
+            //     - "admin_password" = <your-password-here>
+            // - Do NOT place admin passwords into the regular announcement rows (or use a different column name)
+            // The page will detect rows marked as admin OR rows that contain admin_password and will not treat those rows as announcements.
+
+        // -------------------------------------------------------------
+        // MAIN LOGIC
+        // -------------------------------------------------------------
+        let announcements = [];
+
+        function getIcon(priority) {
+            switch(priority.toLowerCase()) {
+                case 'urgent': return '🔴';
+                case 'high': return '🟠';
+                case 'medium': return '🟡';
+                case 'low': return '🟢';
+                default: return '📢';
+            }
+        }
+
+        // CSV Parser to handle commas inside text (e.g., "Hello, world")
+        function parseCSV(text) {
+            const rows = [];
+            let currentRow = [];
+            let currentCell = '';
+            let inQuotes = false;
+
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                const nextChar = text[i + 1];
+
+                if (char === '"') {
+                    if (inQuotes && nextChar === '"') {
+                        currentCell += '"'; // Handle escaped quotes
+                        i++;
+                    } else {
+                        inQuotes = !inQuotes;
+                    }
+                } else if (char === ',' && !inQuotes) {
+                    currentRow.push(currentCell.trim());
+                    currentCell = '';
+                } else if ((char === '\r' || char === '\n') && !inQuotes) {
+                    if (currentCell || currentRow.length > 0) {
+                        currentRow.push(currentCell.trim());
+                        rows.push(currentRow);
+                        currentRow = [];
+                        currentCell = '';
+                    }
+                    if (char === '\r' && nextChar === '\n') i++;
+                } else {
+                    currentCell += char;
+                }
+            }
+            if (currentCell || currentRow.length > 0) {
+                currentRow.push(currentCell.trim());
+                rows.push(currentRow);
+            }
+            return rows;
+        }
+
+        async function fetchAnnouncements() {
+            try {
+                if(sheetUrl === 'YOUR_GOOGLE_SHEET_CSV_LINK_HERE') {
+                    console.warn("Please update the sheetUrl in the code.");
+                    // Fallback to empty to show empty state or handle gracefull
+                }
+
+                        const response = await fetch(sheetUrl);
+                        const text = await response.text();
+                        const rows = parseCSV(text);
+
+                        // Expect first row to be headers; create objects keyed by header names
+                        // If headers look missing, fall back to the legacy positional parsing
+                        let objects = [];
+                        if (rows.length > 0) {
+                            const headerRow = rows[0].map(h => String(h || '').trim());
+                            const normalized = headerRow.map(h => String(h || '').trim().toLowerCase().replace(/\s+/g, '_'));
+
+                            // If header row contains at least 'title' or 'date' treat as headered sheet
+                            const hasHeader = normalized.includes('title') || normalized.includes('date') || normalized.includes('description');
+
+                            if (hasHeader) {
+                                objects = rows.slice(1).map(r => {
+                                    const obj = {};
+                                    normalized.forEach((key, idx) => {
+                                        obj[key] = r[idx] ? r[idx] : '';
+                                    });
+                                    return obj;
+                                }).filter(r => Object.values(r).some(v => String(v).trim() !== ''));
+                            } else {
+                                // legacy: no header row — use positional mapping
+                                const dataRows = rows.slice(1);
+                                objects = dataRows.map(row => ({
+                                    title: row[0] || '',
+                                    date: row[1] || '',
+                                    description: row[2] || '',
+                                    priority: row[3] ? row[3].toLowerCase() : 'medium',
+                                    link: row[4] || '#',
+                                    link_target: row[5] || '_self'
+                                })).filter(item => item.title || item.description);
+                            }
+                        }
+
+                        // Separate admin rows (rows meant to hold admin passwords/credentials)
+                        // You can mark a row as admin by adding a column named one of:
+                        // 'is_admin' (yes/true/1), 'role' === 'admin', or giving the row a 'title' === 'admin'
+                        // Admin passwords should appear in a 'password' or 'admin_password' column.
+                        const adminCandidates = objects.filter(o => {
+                            const isAdminFlag = String(o.is_admin || o.role || o.title || '').toLowerCase();
+                            // require an explicit admin marker OR an admin_password column to qualify
+                            if (isAdminFlag === 'admin' || isAdminFlag === 'true' || isAdminFlag === 'yes' || isAdminFlag === '1') return true;
+                            // prefer explicit admin_password column (so 'password' used on announcement rows won't be misinterpreted)
+                            if ((o.admin_password && o.admin_password.trim() !== '')) return true;
+                            return false;
+                        });
+
+                        // Pull any passwords configured on admin rows — these will be used to validate login.
+                        // Keep them in-memory only; this is still client-side and not secure for production.
+                        const sheetAdminPasswords = adminCandidates.map(a => (a.admin_password || a.password || '').trim()).filter(Boolean);
+
+                        // Build announcements from objects excluding the admin rows
+                        announcements = objects.filter(o => !adminCandidates.includes(o)).map(o => ({
+                            title: o.title || '',
+                            date: o.date || '',
+                            description: o.description || '',
+                            priority: (o.priority || o.priority_level || 'medium').toLowerCase(),
+                            link: o.link || o.url || '#',
+                            linkTarget: o.link_target || o.linkTarget || (o.link && o.link.startsWith('http') ? '_blank' : '_self'),
+                            icon: getIcon(o.priority || o.priority_level || 'medium')
+                        }));
+
+                        // expose admin passwords for validation elsewhere (in-memory only)
+                        window.__sheetAdminPasswords = sheetAdminPasswords;
+
+                renderAnnouncements('all');
+
+            } catch (error) {
+                console.error('Error fetching announcements:', error);
+                document.getElementById('announcementsList').innerHTML = 
+                    '<p style="text-align:center">Unable to load announcements. Please check connection.</p>';
+            }
+        }
+
+        function renderAnnouncements(filter = 'all') {
+            const list = document.getElementById('announcementsList');
+            const emptyState = document.getElementById('emptyState');
+            
+            let filtered = announcements;
+            if (filter !== 'all') {
+                filtered = announcements.filter(ann => ann.priority === filter);
+            }
+
+            if (filtered.length === 0) {
+                list.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            list.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+            
+            list.innerHTML = filtered.map(ann => `
+                <div class="announcement-card">
+                    <div class="card-header">
+                        <div class="card-icon">${ann.icon}</div>
+                        <span class="priority-badge priority-${ann.priority}">${ann.priority}</span>
+                    </div>
+                    <div class="card-date">${ann.date}</div>
+                    <h3 class="card-title">${ann.title}</h3>
+                    <p class="card-description">${ann.description}</p>
+                    <div class="card-footer">
+                        <a href="${ann.link}" class="read-more" target="${ann.linkTarget}">
+                           ${ann.link && ann.link !== '#' ? 'Read Full Message →' : 'No Action Required'}
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Event Listeners
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.dataset.filter;
+                renderAnnouncements(filter);
+            });
+        });
+
+        // Init
+        fetchAnnouncements();
+
+        // -------------------------------------------------------------
+        // CLIENT-SIDE ADMIN PASSWORD PROTECTION (UI + simple lockout)
+        // NOTE: client-side protection is NOT secure for production.
+        // This uses the password supplied by the user to gate access to the admin URL.
+        // For real protection, implement server-side authentication instead.
+        // -------------------------------------------------------------
+
+        const ADMIN_PASSWORD = 'Wedope008'; // fallback password (keeps existing behavior if sheet has no admin entries)
+        const adminLoginAnchor = document.getElementById('adminLogin');
+        const adminModal = document.getElementById('adminModal');
+        const adminPasswordInput = document.getElementById('adminPasswordInput');
+        const adminSubmitBtn = document.getElementById('adminSubmitBtn');
+        const adminCancelBtn = document.getElementById('adminCancelBtn');
+        const adminMsg = document.getElementById('adminMsg');
+        const adminLockInfo = document.getElementById('adminLockInfo');
+
+        let attempts = 0;
+        let lockedUntil = null; // timestamp
+
+        function showAdminModal(e) {
+            if (e) e.preventDefault();
+            // if sheet admin passwords haven't loaded yet, show a quick info
+            const sheetAdmins = window.__sheetAdminPasswords;
+            if (typeof sheetAdmins === 'undefined') {
+                adminMsg.style.visibility = 'visible';
+                adminMsg.textContent = 'Loading admin credentials from sheet — try again in a second.';
+                setTimeout(() => { adminMsg.style.visibility = 'hidden'; }, 1600);
+                return;
+            }
+            if (lockedUntil && Date.now() < lockedUntil) {
+                const wait = Math.ceil((lockedUntil - Date.now()) / 1000);
+                adminLockInfo.style.display = 'block';
+                adminLockInfo.textContent = 'Locked due to multiple failed attempts. Try again in ' + wait + 's.';
+                return;
+            }
+            adminModal.classList.remove('hidden');
+            adminModal.setAttribute('aria-hidden', 'false');
+            adminPasswordInput.value = '';
+            adminPasswordInput.focus();
+            adminMsg.style.visibility = 'hidden';
+            adminLockInfo.style.display = 'none';
+        }
+
+        function hideAdminModal() {
+            adminModal.classList.add('hidden');
+            adminModal.setAttribute('aria-hidden', 'true');
+            adminPasswordInput.value = '';
+            adminMsg.style.visibility = 'hidden';
+        }
+
+        function attemptAdminLogin() {
+            if (lockedUntil && Date.now() < lockedUntil) {
+                const wait = Math.ceil((lockedUntil - Date.now()) / 1000);
+                adminLockInfo.style.display = 'block';
+                adminLockInfo.textContent = 'Locked. Try again in ' + wait + 's.';
+                return;
+            }
+
+            const val = adminPasswordInput.value;
+            if (!val) {
+                adminMsg.style.visibility = 'visible';
+                adminMsg.textContent = 'Please enter a password.';
+                return;
+            }
+
+            // Validate against sheet-provided admin passwords first, then fallback
+            const sheetAdmins = window.__sheetAdminPasswords || [];
+            const isValid = sheetAdmins.includes(val.trim()) || val === ADMIN_PASSWORD;
+
+            if (isValid) {
+                const adminUrl = adminLoginAnchor.dataset.adminLink || '#';
+                // open admin link in a new tab/window
+                window.open(adminUrl, '_blank', 'noopener');
+                hideAdminModal();
+                attempts = 0;
+                adminMsg.style.visibility = 'hidden';
+            } else {
+                attempts++;
+                adminMsg.style.visibility = 'visible';
+                adminMsg.textContent = 'Incorrect password.';
+                adminPasswordInput.value = '';
+                adminPasswordInput.focus();
+
+                if (attempts >= 3) {
+                    const lockSeconds = 30; // brief lockout to reduce brute force
+                    lockedUntil = Date.now() + lockSeconds * 1000;
+                    adminLockInfo.style.display = 'block';
+                    adminLockInfo.textContent = 'Too many failed attempts. Locked for ' + lockSeconds + ' seconds.';
+
+                    const intervalId = setInterval(() => {
+                        const remaining = Math.ceil((lockedUntil - Date.now()) / 1000);
+                        if (remaining > 0) {
+                            adminLockInfo.textContent = 'Locked for ' + remaining + 's';
+                        } else {
+                            clearInterval(intervalId);
+                            lockedUntil = null;
+                            attempts = 0;
+                            adminLockInfo.style.display = 'none';
+                            adminMsg.style.visibility = 'hidden';
+                        }
+                    }, 1000);
+                }
+            }
+        }
+
+        if (adminLoginAnchor) adminLoginAnchor.addEventListener('click', showAdminModal);
+        if (adminCancelBtn) adminCancelBtn.addEventListener('click', hideAdminModal);
+        if (adminModal) adminModal.addEventListener('click', function(e) { if (e.target === adminModal) hideAdminModal(); });
+        if (adminPasswordInput) adminPasswordInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') attemptAdminLogin(); if (e.key === 'Escape') hideAdminModal(); });
+        if (adminSubmitBtn) adminSubmitBtn.addEventListener('click', attemptAdminLogin);
+
+    </script>
+</body>
+</html>

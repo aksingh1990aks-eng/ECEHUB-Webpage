@@ -9,6 +9,7 @@
       gtag('js', new Date());
       gtag('config', 'G-TTH15H3XJ8');
     </script>
+    <meta name="google-adsense-account" content="ca-pub-6279063022818685">
     <meta name="google-site-verification" content="OZbOKN_Z2v3UoLUC0zNAElKLHyc8aePuPbS3P6lcH8k" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,6 +62,60 @@
             0%, 100% { transform: translate(0, 0); }
             50% { transform: translate(50px, -50px); }
         }
+        /* Annoucement Section Styles */
+        .announcements-section {
+    padding: 2rem;
+    margin: 2rem 0;
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.1), rgba(0, 168, 232, 0.1));
+    border: 2px solid var(--border);
+    border-radius: 10px;
+}
+
+.announcement-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-left: 5px solid var(--secondary);
+}
+
+.announcement-link:hover {
+    border-left-color: var(--accent);
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0, 168, 232, 0.2);
+}
+
+.announcement-icon {
+    font-size: 2rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.announcement-text {
+    font-weight: 600;
+    font-size: 1.1rem;
+    flex: 1;
+}
+
+.arrow {
+    color: var(--accent);
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.announcement-link:hover .arrow {
+    transform: translateX(5px);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
 
         /* Navigation */
         nav {
@@ -421,6 +476,20 @@
         <div class="ad-container">
             <!-- PASTE YOUR ADSENSE CODE HERE (300x250 or 728x90) -->
         </div>
+        <!-- Announcements Section -->
+<section class="announcements-section">
+    <div class="container">
+        <h2 class="section-title">📢 Latest Announcements</h2>
+        <div class="announcement-preview">
+            <a href="announcements.html" class="announcement-link">
+                <span class="announcement-icon">📣</span>
+                <span class="announcement-text">View All Important Announcements</span>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
 
         <!-- Projects Section -->
         <section>
@@ -611,7 +680,7 @@
         'sem1_ct2_25-26_Question Paper': '',
         'sem1_ct2_24-25_Question Paper': 'https://drive.google.com/file/d/11FAidtXtWlmVnm5QzlvXXgtGCthqgSMF/view?usp=sharing',
         'sem1_ct2_23-24_Question Paper': 'https://drive.google.com/file/d/1XW1A41jBe4Fn-pf-gWy26XmAGLq2yDhL/view?usp=sharing',
-        'sem1_ct2_22-23_Question Paper': 'https://drive.google.com/file/d/1hNLt75XCOhNyLN50_eJuU5IUkVVkbPmL/view?usp=sharing',
+        'sem1_ct2_22-23_Question Paper': 'https://drive.google.com/file/d/1eHA8Nf7p_396ONGv50nSyd_GAw40VZ4i/view?usp=sharing',
         //End Sem
         'sem1_end_22-23_Question Paper': '',
         'sem1_end_23-24_Question Paper': '',

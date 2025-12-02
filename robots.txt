@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: eceinfos.com/sitemap.xml
+Sitemap: eceinfos.netlify.app/sitemap.xml
 
 # AdSense crawling
 User-agent: Mediapartners-Google
