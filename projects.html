@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+     <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6279063022818685"
+     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore our innovative ECE projects including IoT systems, RF energy harvesting, and LNA design.">
+    <meta name="description"
+        content="Explore our innovative ECE projects including IoT systems, RF energy harvesting, and LNA design.">
     <meta name="robots" content="index, follow">
     <title>Projects - College Hub ECE</title>
     <style>
@@ -16,36 +23,53 @@
             --color-light: #f8f9fa;
             --gradient-primary: linear-gradient(135deg, #32b8c5 0%, #218a96 100%);
             --gradient-dark: linear-gradient(135deg, #1a252f 0%, #0f1419 100%);
+            --text-primary: #f8f9fa;
+            --text-secondary: rgba(248, 249, 250, 0.8);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--gradient-dark);
-            color: var(--color-light);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         .bg-animation {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
         }
 
         .bg-animation::before {
             content: '';
             position: absolute;
-            width: 200%; height: 200%;
+            width: 200%;
+            height: 200%;
             background: radial-gradient(circle at 20% 50%, rgba(50, 184, 197, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
             animation: drift 20s ease-in-out infinite;
         }
 
         @keyframes drift {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(50px, -50px); }
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(50px, -50px);
+            }
         }
 
         nav {
@@ -93,6 +117,7 @@
             font-size: 48px;
             margin-bottom: 10px;
             background: linear-gradient(135deg, var(--color-primary), #ff6b6b);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -100,7 +125,7 @@
 
         .intro-text {
             font-size: 18px;
-            color: rgba(248, 249, 250, 0.8);
+            color: var(--text-secondary);
             margin-bottom: 30px;
         }
 
@@ -136,7 +161,7 @@
         }
 
         .project-card p {
-            color: rgba(248, 249, 250, 0.8);
+            color: var(--text-secondary);
             margin-bottom: 15px;
             line-height: 1.8;
         }
@@ -192,14 +217,155 @@
                 padding: 20px 10px;
             }
         }
+
+        /* Light-mode overrides */
+        body.light-mode {
+            background: #fbfbfc;
+            --text-primary: #0b1220;
+            --text-secondary: #475569;
+            color: var(--text-primary);
+        }
+
+        body.light-mode nav {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        body.light-mode nav a,
+        body.light-mode nav .logo {
+            color: #0b1220;
+        }
+
+        body.light-mode .project-card,
+        body.light-mode footer {
+            background: #ffffff;
+            color: #0b1220;
+            border-color: rgba(0, 0, 0, 0.06);
+            box-shadow: 0 8px 30px rgba(10, 10, 10, 0.04);
+        }
+        /* --- UNIVERSAL TECH BANNER STYLES --- */
+.tech-banner {
+    position: relative;
+    background-color: var(--color-dark);
+    /* Fallback and Gradient */
+    background: radial-gradient(circle at top right, rgba(50, 184, 197, 0.15), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(255, 107, 107, 0.1), transparent 40%),
+                linear-gradient(180deg, rgba(26, 37, 47, 0.95), rgba(15, 20, 25, 1));
+    border-bottom: 1px solid rgba(50, 184, 197, 0.3);
+    overflow: hidden;
+    padding: 60px 20px; /* Slightly compact for internal pages */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Circuit Grid Pattern */
+.tech-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+        linear-gradient(rgba(50, 184, 197, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(50, 184, 197, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+    pointer-events: none;
+}
+
+/* Glowing Nodes Animation */
+.tech-nodes {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+}
+
+.tech-node {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-primary);
+    opacity: 0;
+    animation: flashNode 4s infinite;
+}
+
+/* Node Positions */
+.tech-node:nth-child(1) { top: 30%; left: 20%; animation-delay: 0s; }
+.tech-node:nth-child(2) { top: 70%; left: 80%; animation-delay: 1.5s; }
+.tech-node:nth-child(3) { top: 40%; left: 60%; animation-delay: 2.5s; }
+.tech-node:nth-child(4) { top: 80%; left: 10%; animation-delay: 3.5s; }
+
+/* Connecting Lines */
+.tech-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(50, 184, 197, 0.5), transparent);
+    width: 100px;
+    animation: moveLine 8s linear infinite;
+    opacity: 0.4;
+}
+.tech-line:nth-child(5) { top: 31%; left: 20%; transform: rotate(45deg); }
+.tech-line:nth-child(6) { top: 71%; left: 75%; transform: rotate(-15deg); }
+
+/* Text Styling */
+.tech-banner h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, #fff 30%, var(--color-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.tech-banner p {
+    font-size: 1.1rem;
+    color: rgba(248, 249, 250, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Animations */
+@keyframes flashNode {
+    0%, 100% { opacity: 0; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+@keyframes moveLine {
+    0% { transform: translateX(-50px) rotate(45deg); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateX(50px) rotate(45deg); opacity: 0; }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .tech-banner { padding: 40px 15px; }
+    .tech-banner h1 { font-size: 2rem; }
+}
     </style>
 </head>
+
 <body>
+    <amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-6279063022818685">
+</amp-auto-ads>
+    <div class="bg-animation"></div>
+
     <div class="bg-animation"></div>
 
     <nav>
         <a href="index.html" class="logo">📚 College Hub</a>
         <ul>
+            <li id="theme-toggle" style="cursor:pointer"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    width="20" height="20" color="currentColor" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M21.5 14.0784C20.3003 14.7189 18.9301 15.0821 17.4751 15.0821C12.7491 15.0821 8.91792 11.2509 8.91792 6.52485C8.91792 5.06986 9.28105 3.69968 9.92163 2.5C5.66765 3.49698 2.5 7.31513 2.5 11.8731C2.5 17.1899 6.8101 21.5 12.1269 21.5C16.6849 21.5 20.503 18.3324 21.5 14.0784Z" />
+                </svg></li>
             <li><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="about.html">About</a></li>
@@ -207,17 +373,27 @@
             <li><a href="privacy-policy.html">Privacy</a></li>
         </ul>
     </nav>
-
+<div class="tech-banner">
+    <div class="tech-nodes">
+        <div class="tech-node"></div><div class="tech-node"></div>
+        <div class="tech-node"></div><div class="tech-node"></div>
+        <div class="tech-line"></div><div class="tech-line"></div>
+    </div>
+    <h1>Featured ECE Projects</h1>
+    <p>Explore our innovative projects in Electronics and Communication Engineering, showcasing cutting-edge technology and practical engineering principles.</p>
+</div>
     <main>
-        <h1>💡 Featured ECE Projects</h1>
-        <p class="intro-text">Explore our innovative projects in Electronics and Communication Engineering. Each project showcases cutting-edge technology and practical engineering principles.</p>
+        
 
         <h2>Project 1: IoT-Based Weather Monitoring System</h2>
         <div class="project-card">
             <h3>📡 Real-Time Environmental Data Collection</h3>
-            <p>This innovative project combines IoT technology with cloud integration to create a comprehensive weather monitoring system. The system captures real-time environmental data including temperature, humidity, pressure, and air quality metrics. Data is transmitted to cloud servers for storage, analysis, and visualization through an intuitive web dashboard.</p>
+            <p>This innovative project combines IoT technology with cloud integration to create a comprehensive weather
+                monitoring system. The system captures real-time environmental data including temperature, humidity,
+                pressure, and air quality metrics. Data is transmitted to cloud servers for storage, analysis, and
+                visualization through an intuitive web dashboard.</p>
             <p><strong>Key Features:</strong></p>
-            <ul style="margin: 10px 0 15px 20px; color: rgba(248, 249, 250, 0.8);">
+            <ul style="margin: 10px 0 15px 20px; color: var(--text-secondary);">
                 <li>Real-time sensor data collection every 5 minutes</li>
                 <li>Cloud-based data storage and retrieval</li>
                 <li>Web dashboard for live visualization</li>
@@ -240,9 +416,12 @@
         <h2>Project 2: RF Energy Harvesting System</h2>
         <div class="project-card">
             <h3>⚡ Ambient Radio Frequency Power Conversion</h3>
-            <p>This groundbreaking project focuses on harvesting energy from ambient radio frequencies in the environment. The system converts otherwise wasted electromagnetic energy into usable DC power that can charge batteries or power low-consumption devices. This technology has applications in remote sensor networks, IoT devices, and sustainable energy systems.</p>
+            <p>This groundbreaking project focuses on harvesting energy from ambient radio frequencies in the
+                environment. The system converts otherwise wasted electromagnetic energy into usable DC power that can
+                charge batteries or power low-consumption devices. This technology has applications in remote sensor
+                networks, IoT devices, and sustainable energy systems.</p>
             <p><strong>Key Features:</strong></p>
-            <ul style="margin: 10px 0 15px 20px; color: rgba(248, 249, 250, 0.8);">
+            <ul style="margin: 10px 0 15px 20px; color: var(--text-secondary);">
                 <li>Multi-band antenna design for 800MHz to 2.4GHz</li>
                 <li>High-efficiency rectenna circuit</li>
                 <li>Impedance matching network</li>
@@ -264,9 +443,13 @@
         <h2>Project 3: High-Performance Low Noise Amplifier (LNA)</h2>
         <div class="project-card">
             <h3>📶 Ultra-Sensitive Signal Reception System</h3>
-            <p>This project involves the design and implementation of a high-performance Low Noise Amplifier for advanced wireless communication systems. The LNA is specifically optimized to amplify weak signals while minimizing added noise, making it ideal for satellite communications, cellular networks, and radar systems. The design achieves excellent noise figure and gain characteristics across the required frequency band.</p>
+            <p>This project involves the design and implementation of a high-performance Low Noise Amplifier for
+                advanced wireless communication systems. The LNA is specifically optimized to amplify weak signals while
+                minimizing added noise, making it ideal for satellite communications, cellular networks, and radar
+                systems. The design achieves excellent noise figure and gain characteristics across the required
+                frequency band.</p>
             <p><strong>Key Features:</strong></p>
-            <ul style="margin: 10px 0 15px 20px; color: rgba(248, 249, 250, 0.8);">
+            <ul style="margin: 10px 0 15px 20px; color: var(--text-secondary);">
                 <li>Ultra-low noise figure (&lt; 0.5 dB)</li>
                 <li>High power gain (20+ dB)</li>
                 <li>Stable operation across temperature range</li>
@@ -288,10 +471,14 @@
         <h2>Skills Demonstrated</h2>
         <div class="project-card">
             <h3>🛠️ Technical Competencies</h3>
-            <p><strong>Programming:</strong> Proficient in C, C++, and Python for embedded systems, algorithm development, and automation.</p>
-            <p><strong>Design Tools:</strong> Experienced with HFSS for electromagnetic simulation, Multisim for circuit design, ANSYS for advanced analysis, and ADS for RF/Microwave design.</p>
-            <p><strong>Hardware Platforms:</strong> Skilled with Arduino, Raspberry Pi, oscilloscopes, network analyzers, and various microcontrollers and development boards.</p>
-            <p><strong>Communication:</strong> Strong ability to document projects, present findings, and collaborate in team environments.</p>
+            <p><strong>Programming:</strong> Proficient in C, C++, and Python for embedded systems, algorithm
+                development, and automation.</p>
+            <p><strong>Design Tools:</strong> Experienced with HFSS for electromagnetic simulation, Multisim for circuit
+                design, ANSYS for advanced analysis, and ADS for RF/Microwave design.</p>
+            <p><strong>Hardware Platforms:</strong> Skilled with Arduino, Raspberry Pi, oscilloscopes, network
+                analyzers, and various microcontrollers and development boards.</p>
+            <p><strong>Communication:</strong> Strong ability to document projects, present findings, and collaborate in
+                team environments.</p>
         </div>
     </main>
 
@@ -304,5 +491,11 @@
         </div>
         <p>&copy; 2025 College Hub - ECE Innovation Center. All rights reserved.</p>
     </footer>
+    <script>
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-mode');
+        const tbtn = document.getElementById('theme-toggle');
+        if (tbtn) tbtn.addEventListener('click', () => { const l = document.body.classList.toggle('light-mode'); localStorage.setItem('theme', l ? 'light' : 'dark'); });
+    </script>
 </body>
+
 </html>

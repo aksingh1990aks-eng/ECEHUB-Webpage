@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6279063022818685"
+     crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TTH15H3XJ8"></script>
     <script>
@@ -26,8 +31,10 @@
             --color-primary-dark: #218a96;
             --color-accent: #ff6b6b;
             --color-dark: #1a252f;
-            --color-darker: #0f1419;
+            --color-darker: #19150f;
             --color-light: #f8f9fa;
+            --text-primary: #f8f9fa; /* main body text color */
+            --text-secondary: rgba(248, 249, 250, 0.8); /* subtle text */
             --color-card: #ffffff;
             --gradient-primary: linear-gradient(135deg, #32b8c5 0%, #218a96 100%);
             --gradient-dark: linear-gradient(135deg, #1a252f 0%, #0f1419 100%);
@@ -35,13 +42,21 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        .light-mode{
+               --gradient-dark: #f6f6f6;
+               --text-primary: #0b1220; /* dark readable text for light-mode */
+               --text-secondary: #475569;
+               --color-card: #ffffff;
+               --color-light: #07192b; /* keep backwards-compatible variable */
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--gradient-dark);
-            color: var(--color-light);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
+
 
         /* Animated Background */
         .bg-animation {
@@ -165,6 +180,7 @@
             font-size: 48px;
             margin-bottom: 10px;
             background: linear-gradient(135deg, var(--color-primary), #ff6b6b);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -172,7 +188,7 @@
 
         .hero p {
             font-size: 18px;
-            color: rgba(248, 249, 250, 0.8);
+            color: var(--text-secondary);
             margin-bottom: 30px;
         }
 
@@ -223,7 +239,7 @@
         }
 
         .card p {
-            color: rgba(248, 249, 250, 0.8);
+            color: var(--text-secondary);
             margin-bottom: 10px;
         }
 
@@ -447,15 +463,119 @@
             border: 1px dashed rgba(50, 184, 197, 0.2);
             border-radius: 8px;
         }
+        /* --- NEW TECH BANNER STYLES --- */
+.ece-banner {
+    position: relative;
+    background-color: var(--color-dark);
+    /* Deep tech background */
+    background: radial-gradient(circle at 50% 50%, rgba(26, 37, 47, 1) 0%, rgba(15, 20, 25, 1) 100%);
+    overflow: hidden;
+    border: 1px solid rgba(50, 184, 197, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(50, 184, 197, 0.1);
+}
+
+/* The Circuit Grid Background */
+.ece-grid {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Creates a graph-paper / PCB effect */
+    background-image: 
+        linear-gradient(rgba(50, 184, 197, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(50, 184, 197, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Glowing Nodes (Animated Dots) */
+.ece-node {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--color-primary), 0 0 15px var(--color-primary);
+    animation: pulseNode 3s infinite ease-in-out;
+    z-index: 2;
+}
+
+/* Content Positioning */
+.ece-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(26, 37, 47, 0.8) 0%, transparent 80%);
+}
+
+/* Specific Sizes */
+.hero-size {
+    padding: 80px 20px;
+    margin-bottom: 40px;
+    border-radius: 0 0 20px 20px; /* Rounded bottom only */
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.mid-size {
+    padding: 30px 20px;
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+}
+
+/* Typography Overrides */
+.ece-banner h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #fff, var(--color-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.ece-banner h3 {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.ece-banner p {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Animation Keyframes */
+@keyframes pulseNode {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .mid-size { flex-direction: column; text-align: center; gap: 15px; }
+    .ece-banner h1 { font-size: 2rem; }
+}
     </style>
 </head>
 <body>
+    <amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-6279063022818685">
+</amp-auto-ads>
     <div class="bg-animation"></div>
 
     <!-- Navigation -->
+     
     <nav>
         <a href="/" class="logo">📚 College Hub</a>
         <ul>
+            <li id="theme-toggle" style="cursor:pointer"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="currentColor" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21.5 14.0784C20.3003 14.7189 18.9301 15.0821 17.4751 15.0821C12.7491 15.0821 8.91792 11.2509 8.91792 6.52485C8.91792 5.06986 9.28105 3.69968 9.92163 2.5C5.66765 3.49698 2.5 7.31513 2.5 11.8731C2.5 17.1899 6.8101 21.5 12.1269 21.5C16.6849 21.5 20.503 18.3324 21.5 14.0784Z" />
+</svg></li>
             <li><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="about.html">About</a></li>
@@ -465,16 +585,38 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <h1>🚀 College Hub - ECE Innovation Center</h1>
-        <p>Building the future with cutting-edge technology and innovation</p>
+    <section class="ece-banner hero-size">
+        <div class="ece-grid"></div>
+        <div class="ece-node" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
+        <div class="ece-node" style="top: 70%; left: 85%; animation-delay: 1s;"></div>
+        <div class="ece-node" style="top: 40%; left: 60%; animation-delay: 2s;"></div>
+        <div class="ece-node" style="top: 80%; left: 10%; animation-delay: 1.5s;"></div>
+
+        <div class="ece-content">
+            <h1>🚀 College Hub</h1>
+            <p>ECE Innovation Center • Resources • Projects • Community</p>
+        </div>
     </section>
 
     <!-- Main Content -->
     <main>
         <!-- AdSense Ad Space -->
-        <div class="ad-container">
-            <!-- PASTE YOUR ADSENSE CODE HERE (300x250 or 728x90) -->
+         <!-- banner -->
+        <div class="ece-banner mid-size">
+            <div class="ece-grid"></div>
+            <div class="ece-node" style="top: 50%; left: 10%;"></div>
+            <div class="ece-node" style="top: 20%; right: 20%;"></div>
+
+            <div class="ece-content" style="text-align: left; padding-left: 20px;">
+                <h3>💡 Have a Project Idea?</h3>
+                <p style="margin:0;">Submit your electronics projects to be featured on College Hub.</p>
+            </div>
+            
+            <div class="ece-content" style="padding-right: 20px;">
+                <a href="contact.html" style="background: var(--color-primary); color: #000; padding: 10px 20px; text-decoration: none; border-radius: 30px; font-weight: bold; display: inline-block;">
+                    Submit Project →
+                </a>
+            </div>
         </div>
         <!-- Announcements Section -->
 <section class="announcements-section">
@@ -485,7 +627,11 @@
                 <span class="announcement-icon">📣</span>
                 <span class="announcement-text">View All Important Announcements</span>
                 <span class="arrow">→</span>
+
             </a>
+            <button onclick="enableNotifications()" style="padding:10px 20px; background:#ff6b6b; color:white; border:none; border-radius:5px; cursor:pointer;">
+    🔔 Get Notified
+</button>
         </div>
     </div>
 </section>
@@ -631,15 +777,29 @@
                     <button class="close-modal" onclick="closePrivacy()">✕</button>
                 </div>
                 <div style="margin-top:1rem; color:var(--color-light);">
-                    <p>This site uses cookies and similar technologies for analytics and advertising. Ads may be delivered by third parties such as Google AdSense. Replace with your full privacy policy page for production.</p>
+                    <p>This site uses cookies and similar technologies for analytics and advertising. Ads may be delivered by third parties such as Google AdSense. .</p>
                     <p><a href="privacy-policy.html" style="color:var(--color-primary)">Read full Privacy Policy</a></p>
                 </div>
             </div>
         </div>
 
         <!-- AdSense Ad Space -->
-        <div class="ad-container">
-            <!-- PASTE YOUR ADSENSE CODE HERE (300x250 or 728x90) -->
+         <!-- banner -->
+       <div class="ece-banner mid-size">
+            <div class="ece-grid"></div>
+            <div class="ece-node" style="top: 50%; left: 10%;"></div>
+            <div class="ece-node" style="top: 20%; right: 20%;"></div>
+
+            <div class="ece-content" style="text-align: left; padding-left: 20px;">
+                <h3>💡 Have a Project Idea?</h3>
+                <p style="margin:0;">Submit your electronics projects to be featured on College Hub.</p>
+            </div>
+            
+            <div class="ece-content" style="padding-right: 20px;">
+                <a href="contact.html" style="background: var(--color-primary); color: #000; padding: 10px 20px; text-decoration: none; border-radius: 30px; font-weight: bold; display: inline-block;">
+                    Submit Project →
+                </a>
+            </div>
         </div>
     </main>
 
@@ -667,34 +827,124 @@
     </footer>
 
     <!-- ADD: JS required for the copied PYQs section to function -->
-    <script>
-    // Minimal fileLinks + modal helpers (copied from source). Fill fileLinks entries as needed.
-    const fileLinks = {
-        //Sem 1
-        // CT-1
-        'sem1_ct1_25-26_Question Paper': 'https://drive.google.com/file/d/1Kdf0_7ve8S8y3LEvmLfIQFXykEhseQr2/view?usp=sharing',
-        'sem1_ct1_24-25_Question Paper': 'https://drive.google.com/file/d/1LfHilfec3KL0PV5AO-cN-R9ZjB7OmftG/view?usp=sharing',
-        'sem1_ct1_23-24_Question Paper': 'https://drive.google.com/file/d/1AcrJqTd920UPJy6eeToVVZYh6ZzN2252/view?usp=sharing',
-        'sem1_ct1_22-23_Question Paper': 'https://drive.google.com/file/d/1eHA8Nf7p_396ONGv50nSyd_GAw40VZ4i/view?usp=sharing',
-        //CT-2
-        'sem1_ct2_25-26_Question Paper': '',
-        'sem1_ct2_24-25_Question Paper': 'https://drive.google.com/file/d/11FAidtXtWlmVnm5QzlvXXgtGCthqgSMF/view?usp=sharing',
-        'sem1_ct2_23-24_Question Paper': 'https://drive.google.com/file/d/1XW1A41jBe4Fn-pf-gWy26XmAGLq2yDhL/view?usp=sharing',
-        'sem1_ct2_22-23_Question Paper': 'https://drive.google.com/file/d/1eHA8Nf7p_396ONGv50nSyd_GAw40VZ4i/view?usp=sharing',
-        //End Sem
-        'sem1_end_22-23_Question Paper': '',
-        'sem1_end_23-24_Question Paper': '',
-        'sem1_end_24-25_Question Paper': 'https://drive.google.com/file/d/1h8vj_WgV9oraBIsvD-LWdYQ9thzdhFeT/view?usp=sharing',
-        'sem1_end_25-26_Question Paper': '',
-        //Sem-2
-        //CT-1
-        'sem2_ct1_25-26_Question Paper': '',
-        // add more keys as you upload files
-    };
+  <script>
+    // =============================================================
+    // 1. CONFIGURATION
+    // =============================================================
+    // PASTE YOUR PUBLISHED CSV LINK HERE
+    const pyqSheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRa0xCvW5aizCEnOd7sFZ8sTkoKsBTCZRrHJXnXOSPPpsj4UvaYp0hV_bxAfpsH8sJ64aqgucoXCl-1/pub?output=csv';
+
+    // Global object to store links
+    let fileLinks = {};
+
+    // =============================================================
+    // 2. CSV PARSER & DATA FETCHING
+    // =============================================================
+    
+    // Helper: Parse CSV text into array
+    function parseCSV(text) {
+        const rows = [];
+        let currentRow = [];
+        let currentCell = '';
+        let inQuotes = false;
+
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            const nextChar = text[i + 1];
+
+            if (char === '"') {
+                if (inQuotes && nextChar === '"') {
+                    currentCell += '"'; 
+                    i++;
+                } else {
+                    inQuotes = !inQuotes;
+                }
+            } else if (char === ',' && !inQuotes) {
+                currentRow.push(currentCell.trim());
+                currentCell = '';
+            } else if ((char === '\r' || char === '\n') && !inQuotes) {
+                if (currentCell || currentRow.length > 0) {
+                    currentRow.push(currentCell.trim());
+                    rows.push(currentRow);
+                    currentRow = [];
+                    currentCell = '';
+                }
+                if (char === '\r' && nextChar === '\n') i++;
+            } else {
+                currentCell += char;
+            }
+        }
+        if (currentCell || currentRow.length > 0) {
+            currentRow.push(currentCell.trim());
+            rows.push(currentRow);
+        }
+        return rows;
+    }
+
+    // Main Function: Fetch and Map Data
+    async function fetchPYQs() {
+        try {
+            if (pyqSheetUrl.includes('PASTE_YOUR')) {
+                console.warn("⚠️ PYQ Sheet URL not set. Please update the script.");
+                return;
+            }
+
+            const response = await fetch(pyqSheetUrl);
+            const text = await response.text();
+            const rows = parseCSV(text);
+
+            // Skip header row (index 0) and process data
+            const dataRows = rows.slice(1);
+
+            dataRows.forEach(row => {
+                // Expected Columns: [0]Semester, [1]Exam, [2]Year, [3]Link
+                if (row.length < 4) return;
+
+                // 1. CLEAN SEMESTER: "Sem 1" -> "sem1"
+                const semRaw = row[0].toLowerCase().replace(/\s/g, ''); 
+                
+                // 2. CLEAN EXAM: "CT 1" -> "ct1", "End Sem" -> "end"
+                let examRaw = row[1].toLowerCase().replace(/\s/g, '');
+                if (examRaw === 'endsem' || examRaw === 'endsemester') {
+                    examRaw = 'end';
+                }
+
+                // 3. CLEAN YEAR & LINK
+                const year = row[2].trim(); // "24-25"
+                const link = row[3].trim();
+
+                // 4. GENERATE ID KEY
+                // Format: sem1_ct1_24-25_Question Paper
+                const key = `${semRaw}_${examRaw}_${year}_Question Paper`;
+
+                if (link) {
+                    fileLinks[key] = link;
+                }
+            });
+
+            console.log(`✅ Loaded ${Object.keys(fileLinks).length} PYQ links from sheet.`);
+
+        } catch (error) {
+            console.error('❌ Error fetching PYQs:', error);
+            alert("Unable to load question papers database. Please check your connection.");
+        }
+    }
+
+    // Initialize
+    fetchPYQs();
+
+
+    // =============================================================
+    // 3. UI LOGIC (MODALS & DOWNLOADS)
+    // =============================================================
 
     function openPapers(semester, examType) {
-        const semesterNames = { sem1: 'Semester 1', sem2: 'Semester 2', sem3: 'Semester 3', sem4: 'Semester 4', sem5: 'Semester 5', sem6: 'Semester 6', sem7: 'Semester 7' };
+        const semesterNames = { 
+            sem1: 'Semester 1', sem2: 'Semester 2', sem3: 'Semester 3', 
+            sem4: 'Semester 4', sem5: 'Semester 5', sem6: 'Semester 6', sem7: 'Semester 7' 
+        };
         const examTypeNames = { ct1: 'CT-1', ct2: 'CT-2', end: 'END SEM' };
+        
         const semesterName = semesterNames[semester] || semester.toUpperCase();
         const examTypeName = examTypeNames[examType] || examType.toUpperCase();
 
@@ -702,9 +952,31 @@
         const titleEl = modal.querySelector('.papers-title');
         const bodyEl = modal.querySelector('.papers-body');
 
-        const yearsData = [{ year: '25-26' }, { year: '24-25' }, { year: '23-24' }, { year: '22-23' }];
+        // Years to display in the modal
+        const yearsData = [
+            { year: '25-26' }, 
+            { year: '24-25' }, 
+            { year: '23-24' }, 
+            { year: '22-23' }
+        ];
+        
         let yearsHTML = '';
+        
         yearsData.forEach(yearData => {
+            // Check if link exists for this specific combination
+            const checkKey = `${semester}_${examType}_${yearData.year}_Question Paper`;
+            const hasLink = fileLinks[checkKey];
+            
+            // Visual logic: Grey out button if no link
+            const btnStyle = hasLink 
+                ? '' 
+                : 'opacity: 0.5; cursor: not-allowed; background: #475569;';
+            
+            const btnText = hasLink ? '📥 Download' : 'Not Uploaded';
+            const clickAction = hasLink 
+                ? `downloadFile('${semester}', '${examType}', '${yearData.year}')` 
+                : '';
+
             yearsHTML += `
                 <div class="year-section">
                     <div class="year-header">
@@ -715,15 +987,17 @@
                             <div class="paper-title">Question Paper</div>
                             <div class="paper-meta">${yearData.year} ${examTypeName}</div>
                         </div>
-                        <button class="paper-download-btn" onclick="downloadFile('${semester}', '${examType}', '${yearData.year}')">📥 Download</button>
+                        <button class="paper-download-btn" style="${btnStyle}" onclick="${clickAction}">
+                            ${btnText}
+                        </button>
                     </div>
                 </div>
             `;
         });
 
-        // Populate and show the static modal
         titleEl.textContent = `${semesterName} - ${examTypeName}`;
         bodyEl.innerHTML = yearsHTML;
+        
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -735,7 +1009,7 @@
             modal.classList.remove('active');
             modal.setAttribute('aria-hidden', 'true');
             const bodyEl = modal.querySelector('.papers-body');
-            if (bodyEl) bodyEl.innerHTML = '';
+            if (bodyEl) bodyEl.innerHTML = ''; // Clear content
             document.body.style.overflow = 'auto';
         }
     }
@@ -743,14 +1017,16 @@
     function downloadFile(semester, examType, year) {
         const key = `${semester}_${examType}_${year}_Question Paper`;
         const fileURL = fileLinks[key];
+        
         if (fileURL && fileURL.length > 0) {
             window.open(fileURL, '_blank');
         } else {
-            console.log(`Missing link for key: ${key}`);
-            alert(`The question paper for ${semester.toUpperCase()} ${examType.toUpperCase()} (${year}) has not been uploaded yet.\n\n(Key: ${key})`);
+            // Fallback (should be caught by button logic, but just in case)
+            alert(`The question paper for ${year} has not been uploaded yet.`);
         }
     }
 
+    // Modal Close Listeners
     document.addEventListener('click', function(event) {
         const modal = document.getElementById('papersModal');
         if (modal && event.target === modal) closeModal();
@@ -759,10 +1035,14 @@
         if (event.key === 'Escape') closeModal();
     });
 
-    // Smooth scroll for internal anchors (non-intrusive)
+
+    // =============================================================
+    // 4. SITE UTILITIES (Theme, Privacy, Scroll)
+    // =============================================================
+
+    // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            // allow links that are just "#" to behave normally
             const href = this.getAttribute('href');
             if (!href || href === '#') return;
             const target = document.querySelector(href);
@@ -773,7 +1053,7 @@
         });
     });
 
-    // IntersectionObserver for .fade-in elements (so copied section animates like source)
+    // Fade In Animation
     (function() {
         const fadeEls = document.querySelectorAll('.fade-in');
         if ('IntersectionObserver' in window && fadeEls.length) {
@@ -786,16 +1066,15 @@
             }, { threshold: 0.1 });
             fadeEls.forEach(el => observer.observe(el));
         } else {
-            // Fallback: reveal immediately
             fadeEls.forEach(el => el.classList.add('visible'));
         }
     })();
 
-    // Privacy modal open/close (uses #privacyModal)
+    // Privacy Modal Logic
     (function() {
-        // if you'd like a footer trigger that opens the modal, add an element with id="privacyLink"
-        const privacyLink = document.querySelector('a[href="privacy-policy.html"]'); // existing footer link
+        const privacyLink = document.querySelector('a[href="privacy-policy.html"]'); 
         const privacyModal = document.getElementById('privacyModal');
+        
         function openPrivacy(e) {
             if (e) e.preventDefault();
             if (privacyModal) {
@@ -804,19 +1083,7 @@
                 document.body.style.overflow = 'hidden';
             }
         }
-        function attach() {
-            // attach open handler when user Ctrl+clicks or wants inline preview:
-            if (privacyLink) {
-                // keep default navigation when Ctrl/Meta is used to open in new tab
-                privacyLink.addEventListener('click', function(e) {
-                    // If user wants to open the dedicated page in same tab, allow; else open modal
-                    // If link is clicked with modifier, keep default
-                    if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
-                    // Otherwise, open inline modal for quick preview
-                    openPrivacy(e);
-                });
-            }
-        }
+        
         function closePrivacy() {
             if (privacyModal) {
                 privacyModal.classList.remove('active');
@@ -824,15 +1091,90 @@
                 document.body.style.overflow = 'auto';
             }
         }
-        // expose close function used by modal button
+        
         window.closePrivacy = closePrivacy;
-        attach();
-        // close on backdrop / ESC
+        
+        if (privacyLink) {
+            privacyLink.addEventListener('click', function(e) {
+                if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+                openPrivacy(e);
+            });
+        }
+        
         document.addEventListener('click', function(ev) {
             if (privacyModal && ev.target === privacyModal) closePrivacy();
         });
         document.addEventListener('keydown', function(ev) { if (ev.key === 'Escape') closePrivacy(); });
     })();
-    </script>
+
+    // Theme Toggle Logic
+    const savedtheme = localStorage.getItem('theme');
+    if (savedtheme === 'light') document.body.classList.add('light-mode');
+
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const isLight = document.body.classList.toggle('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+    }
+</script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging.js";
+
+  // 1. Paste your Firebase Config Object here AGAIN
+  const firebaseConfig = {
+   apiKey: "AIzaSyBvGooxizDQzONT9RIx-nmsDAaipDLWxlU",
+  authDomain: "new-ece-38328.firebaseapp.com",
+  projectId: "new-ece-38328",
+  storageBucket: "new-ece-38328.firebasestorage.app",
+  messagingSenderId: "837567633494",
+  appId: "1:837567633494:web:6d199303090fc0320b43f7"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const messaging = getMessaging(app);
+
+  // 2. Function to request permission and get the Token
+  async function requestPermission() {
+    console.log('Requesting permission...');
+    try {
+      const permission = await Notification.requestPermission();
+      if (permission === 'granted') {
+        console.log('Notification permission granted.');
+        
+        // Get the Token
+        const token = await getToken(messaging, { 
+            vapidKey: 'BKt1JxI0b_-YhOaeGZdZ7lhLIM_haNi6C9enIm552jkNYItmgx5mdU4Ng28iYN3zsYBtZLp3OBoKJg5bzLr_998' 
+        });
+
+        if (token) {
+          console.log('Your User Token:', token);
+          // TODO: In the future, we will save this token to a database
+          alert("Notifications Enabled! (Check console for Token)");
+        } else {
+          console.log('No registration token available. Request permission to generate one.');
+        }
+      } else {
+        console.log('Unable to get permission to notify.');
+      }
+    } catch (err) {
+      console.log('An error occurred while retrieving token. ', err);
+    }
+  }
+
+  // 3. Handle foreground messages (When website is open)
+  onMessage(messaging, (payload) => {
+    console.log('Message received. ', payload);
+    // Customize how you want to show the alert when the user is ON the site
+    alert(`📢 ${payload.notification.title}: ${payload.notification.body}`);
+  });
+
+  // Expose function to window so you can call it from a button
+  window.enableNotifications = requestPermission;
+</script>
 </body>
 </html>

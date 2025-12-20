@@ -147,6 +147,115 @@
                 padding: 20px 10px;
             }
         }
+        /* Light-mode overrides */
+        body.light-mode { background: #fffdfd; color: #0b1220; }
+        body.light-mode nav { background: rgba(255,255,255,0.95); }
+        body.light-mode nav a, body.light-mode nav .logo { color: #0b1220; }
+        body.light-mode main, body.light-mode footer { background: #ffffff; color: #0b1220; border-color: rgba(0,0,0,0.06); box-shadow: 0 8px 30px rgba(10,10,10,0.03); }
+        /* --- UNIVERSAL TECH BANNER STYLES --- */
+.tech-banner {
+    position: relative;
+    background-color: var(--color-dark);
+    /* Fallback and Gradient */
+    background: radial-gradient(circle at top right, rgba(50, 184, 197, 0.15), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(255, 107, 107, 0.1), transparent 40%),
+                linear-gradient(180deg, rgba(26, 37, 47, 0.95), rgba(15, 20, 25, 1));
+    border-bottom: 1px solid rgba(50, 184, 197, 0.3);
+    overflow: hidden;
+    padding: 60px 20px; /* Slightly compact for internal pages */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Circuit Grid Pattern */
+.tech-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+        linear-gradient(rgba(50, 184, 197, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(50, 184, 197, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+    pointer-events: none;
+}
+
+/* Glowing Nodes Animation */
+.tech-nodes {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+}
+
+.tech-node {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-primary);
+    opacity: 0;
+    animation: flashNode 4s infinite;
+}
+
+/* Node Positions */
+.tech-node:nth-child(1) { top: 30%; left: 20%; animation-delay: 0s; }
+.tech-node:nth-child(2) { top: 70%; left: 80%; animation-delay: 1.5s; }
+.tech-node:nth-child(3) { top: 40%; left: 60%; animation-delay: 2.5s; }
+.tech-node:nth-child(4) { top: 80%; left: 10%; animation-delay: 3.5s; }
+
+/* Connecting Lines */
+.tech-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(50, 184, 197, 0.5), transparent);
+    width: 100px;
+    animation: moveLine 8s linear infinite;
+    opacity: 0.4;
+}
+.tech-line:nth-child(5) { top: 31%; left: 20%; transform: rotate(45deg); }
+.tech-line:nth-child(6) { top: 71%; left: 75%; transform: rotate(-15deg); }
+
+/* Text Styling */
+.tech-banner h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, #fff 30%, var(--color-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.tech-banner p {
+    font-size: 1.1rem;
+    color: rgba(248, 249, 250, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Animations */
+@keyframes flashNode {
+    0%, 100% { opacity: 0; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+@keyframes moveLine {
+    0% { transform: translateX(-50px) rotate(45deg); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateX(50px) rotate(45deg); opacity: 0; }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .tech-banner { padding: 40px 15px; }
+    .tech-banner h1 { font-size: 2rem; }
+}
     </style>
 </head>
 <body>
@@ -155,16 +264,27 @@
     <nav>
         <a href="index.html" class="logo">📚 College Hub</a>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li id="theme-toggle" style="cursor:pointer"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="currentColor" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21.5 14.0784C20.3003 14.7189 18.9301 15.0821 17.4751 15.0821C12.7491 15.0821 8.91792 11.2509 8.91792 6.52485C8.91792 5.06986 9.28105 3.69968 9.92163 2.5C5.66765 3.49698 2.5 7.31513 2.5 11.8731C2.5 17.1899 6.8101 21.5 12.1269 21.5C16.6849 21.5 20.503 18.3324 21.5 14.0784Z" />
+</svg></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="privacy-policy.html">Privacy</a></li>
         </ul>
     </nav>
+    <div class="tech-banner">
+    <div class="tech-nodes">
+        <div class="tech-node"></div><div class="tech-node"></div>
+        <div class="tech-node"></div><div class="tech-node"></div>
+        <div class="tech-line"></div><div class="tech-line"></div>
+    </div>
+    <h1>📋 Terms of Service</h1>
+    <p>Please read these terms carefully before using our platform.</p>
+</div>
 
     <main>
-        <h1>📋 Terms of Service</h1>
+       
         <p class="last-updated">Last Updated: November 2025</p>
 
         <h2>1. Acceptance of Terms</h2>
@@ -253,5 +373,10 @@
         </div>
         <p>&copy; 2025 College Hub - ECE Innovation Center. All rights reserved.</p>
     </footer>
+    <script>
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-mode');
+        const tbtn = document.getElementById('theme-toggle');
+        if (tbtn) tbtn.addEventListener('click', () => { const l = document.body.classList.toggle('light-mode'); localStorage.setItem('theme', l ? 'light' : 'dark'); });
+    </script>
 </body>
 </html>
