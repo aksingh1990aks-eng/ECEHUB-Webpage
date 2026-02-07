@@ -1,0 +1,15 @@
+# Allow Google and other search engines to crawl
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://eceinfos.netlify.app/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

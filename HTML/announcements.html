@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - College Hub</title>
+    
+    <link rel="stylesheet" href="../Css/css main.css">
+    
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') document.documentElement.classList.add('light-mode');
+        })();
+    </script>
+    
+    <style>
+        /* Specific Styles for Filter Buttons */
+        .filter-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .filter-btn.active {
+            background: var(--bg-card);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <a href="index.html" class="logo">📚 College Hub</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#pyqs">PYQs</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="announcements.html" class="active" style="color:var(--primary);">Updates</a></li>
+        </ul>
+    </nav>
+
+    <header class="tech-banner">
+        <div class="tech-nodes">
+            <div class="tech-node" style="top:25%;right:15%"></div>
+            <div class="tech-node" style="top:75%;left:15%"></div>
+        </div>
+        <h1>Department Updates</h1>
+        <p>Stay informed about exams, events, and important notices.</p>
+    </header>
+
+    <main style="padding: 40px 5%; max-width: 900px; margin: 0 auto;">
+        
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="urgent" style="border-color:rgba(239, 68, 68, 0.3);">🔴 Urgent</button>
+            <button class="filter-btn" data-filter="high" style="border-color:rgba(251, 191, 36, 0.3);">🔶 High Priority</button>
+            <button class="filter-btn" data-filter="medium">📢 General</button>
+        </div>
+
+        <div id="announcements-container">
+            <p style="text-align:center; color:var(--text-dim);">Initializing...</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <p>&copy; <span class="conf-year"></span> <span class="conf-founder"></span>. All rights reserved.</p>
+    </footer>
+
+    <script src="../Assets/js/config.js"></script>
+    <script src="../Assets/js/announcements-engine.js"></script>
+    
+    <script>
+        document.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (nav) {
+                if (window.scrollY > 50) nav.classList.add('scrolled');
+                else nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

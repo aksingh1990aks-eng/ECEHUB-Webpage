@@ -1,0 +1,21 @@
+{
+  "name": "College Hub",
+  "short_name": "CollegeHub",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#1a252f",
+  "theme_color": "#32b8c5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/logo-192.png", 
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/images/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - College Hub</title>
+    <link rel="stylesheet" href="../Css/css main.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') document.documentElement.classList.add('light-mode');
+        })();
+    </script>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <a href="index.html" class="logo">📚 College Hub</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="tech-banner">
+        <h1>Get in Touch</h1>
+        <p>We'd love to hear your feedback and suggestions.</p>
+    </header>
+
+    <main style="padding: 40px 5%; max-width: 800px; margin: 0 auto;">
+        <div class="semester-card" style="text-align:center; padding: 3rem;">
+            <h3>📧 Email Us</h3>
+            <p style="margin: 1rem 0; color:var(--text-dim);">For collaborations or queries, drop a mail at:</p>
+            <a href="#" class="download-btn conf-email" style="text-decoration:none;">Loading...</a>
+        </div>
+
+        <div class="semester-card" style="text-align:center; padding: 3rem; margin-top: 2rem;">
+            <h3>📝 Quick Message</h3>
+            <p style="margin: 1rem 0; color:var(--text-dim);">Use our official form to submit resources or feedback.</p>
+            <a href="#" class="download-btn conf-form" target="_blank" style="text-decoration:none; background:var(--secondary);">Open Google Form</a>
+        </div>
+
+        <div class="semester-card" style="margin-top: 2rem;">
+            <h3>📍 Visit Department</h3>
+            <p style="color:var(--text-dim); margin-top:0.5rem;">
+                Department of Electronics & Communication Engineering,<br>
+                <span class="conf-college"></span>,<br>
+                Koni, Bilaspur, Chhattisgarh.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span class="conf-year"></span> <span class="conf-founder"></span>.</p>
+    </footer>
+
+    <script src="../Assets/js/config.js"></script>
+</body>
+</html>

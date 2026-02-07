@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="College Hub - ECE Innovation Center. Official resource portal for Guru Ghasidas Vishwavidyalaya ECE students.">
+    <title>College Hub - ECE Innovation Center</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0f172a"> <link rel="icon" type="image/png" href="../img/logo.jpg">
+    <link rel="apple-touch-icon" href="../img/logo.jpg">
+
+    <link rel="stylesheet" href="../Css/css main.css">
+    
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') document.documentElement.classList.add('light-mode');
+        })();
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6279063022818685" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TTH15H3XJ8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TTH15H3XJ8');
+    </script>
+</head>
+
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <a href="index.html" class="logo">📚 College Hub</a>
+        <ul>
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#pyqs" class="nav-link">PYQs</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            
+            <li id="theme-toggle" style="cursor:pointer; display:flex; align-items:center;"> 
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="currentColor" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.5 14.0784C20.3003 14.7189 18.9301 15.0821 17.4751 15.0821C12.7491 15.0821 8.91792 11.2509 8.91792 6.52485C8.91792 5.06986 9.28105 3.69968 9.92163 2.5C5.66765 3.49698 2.5 7.31513 2.5 11.8731C2.5 17.1899 6.8101 21.5 12.1269 21.5C16.6849 21.5 20.503 18.3324 21.5 14.0784Z" />
+                </svg>
+            </li>
+        </ul>
+    </nav>
+
+    <header id="home" class="tech-banner">
+        <div class="tech-nodes">
+            <div class="tech-node" style="top:20%;left:20%"></div>
+            <div class="tech-node" style="top:80%;left:80%"></div>
+        </div>
+        <h1>College Hub</h1>
+        <p>ECE Innovation Center • Resources • Projects</p>
+    </header>
+
+    <main>
+        <div class="ad-container" style="min-height:90px; margin:20px 0; text-align:center;">
+            </div>
+
+        <section class="semester-card" style="margin: 2rem 5%; text-align:center;">
+            <h3>📢 Latest Updates</h3>
+            <p>Check out the latest department news.</p>
+            <br>
+            <a href="announcements.html" class="download-btn" style="text-decoration:none;">View Announcements</a>
+        </section>
+
+        <section id="pyqs">
+            <h2 style="text-align:center; margin-top:40px; color:var(--primary);">Previous Year Questions</h2>
+            <div id="pyqs-grid-container" class="semesters-container">
+                <p style="text-align:center;">Loading papers database...</p>
+            </div>
+        </section>
+
+        <div id="papersModal" class="papers-modal" style="display:none;">
+            <div class="papers-content">
+                <div class="papers-header">
+                    <h2 class="papers-title"></h2>
+                    <button onclick="closeModal()" style="background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕</button>
+                </div>
+                <div class="papers-body"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#pyqs">PYQs</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="terms-of-service.html">Terms</a>
+        </div>
+        <p>
+            &copy; <span class="conf-year">2026</span> <span class="conf-founder">Ashish Kumar Singh</span>. 
+            All rights reserved.
+        </p>
+        <p>
+            <a href="#" class="conf-github">GitHub</a> • 
+            <a href="#" class="conf-linkedin">LinkedIn</a>
+        </p>
+    </footer>
+
+    <script src="../Assets/js/config.js"></script>
+    <script src="../Assets/js/pyq_engine.js"></script>
+    
+    <script>
+        // --- 1. Main Data Logic ---
+        const pyqSheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRa0xCvW5aizCEnOd7sFZ8sTkoKsBTCZRrHJXnXOSPPpsj4UvaYp0hV_bxAfpsH8sJ64aqgucoXCl-1/pub?output=csv';
+        let fileLinks = {};
+
+        // --- 2. Theme Toggle ---
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const isLight = document.documentElement.classList.toggle('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+
+        // --- 3. Scroll Spy (Responsive Quick Tab) ---
+        // This makes the Nav Links highlight as you scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('header, section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // --- 4. Fetch Data & Init ---
+        async function init() {
+            try {
+                const res = await fetch(pyqSheetUrl);
+                const text = await res.text();
+                const rows = text.split('\n').map(row => row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)).slice(1);
+
+                rows.forEach(row => {
+                    if (row.length < 4) return;
+                    const sem = row[0].replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+                    let exam = row[1].replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+                    if(exam.includes('end')) exam = 'end';
+                    
+                    const year = row[2].trim();
+                    const link = row[3].trim();
+                    const key = `${sem}_${exam}_${year}_Question Paper`;
+                    
+                    if (link) fileLinks[key] = link;
+                });
+
+                renderScalablePYQs(fileLinks);
+
+            } catch (e) {
+                console.error("Error loading DB", e);
+                document.getElementById('pyqs-grid-container').innerHTML = '<p style="text-align:center;color:red;">Failed to load data.</p>';
+            }
+        }
+
+        // --- 5. Modal Logic ---
+        window.openPapers = function(sem, exam) {
+            const modal = document.getElementById('papersModal');
+            const body = modal.querySelector('.papers-body');
+            const title = modal.querySelector('.papers-title');
+            
+            title.textContent = `${sem.toUpperCase()} - ${exam.toUpperCase()}`;
+            body.innerHTML = '';
+
+            [ '26-27', '25-26', '24-25', '23-24', '22-23'].forEach(year => {
+                const key = `${sem}_${exam}_${year}_Question Paper`;
+                const link = fileLinks[key];
+                
+                const div = document.createElement('div');
+                div.style.cssText = "display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid var(--border);";
+                div.innerHTML = `<span>${year}</span> ${link ? `<a href="${link}" target="_blank" class="download-btn">Download</a>` : '<span style="opacity:0.5">N/A</span>'}`;
+                body.appendChild(div);
+            });
+            
+            // Modal styling
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.background = 'rgba(0,0,0,0.85)';
+            modal.style.zIndex = '2000';
+            modal.style.backdropFilter = 'blur(5px)';
+            
+            const content = modal.querySelector('.papers-content');
+            content.style.background = 'var(--bg-card)';
+            content.style.padding = '2rem';
+            content.style.borderRadius = '16px';
+            content.style.border = '1px solid var(--border)';
+            content.style.minWidth = '300px';
+        };
+
+        window.closeModal = () => document.getElementById('papersModal').style.display = 'none';
+
+        init();
+    </script>
+</body>
+</html>

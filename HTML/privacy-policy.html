@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6279063022818685"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy - College Hub ECE Innovation Center">
+    <meta name="robots" content="index, follow">
+    <title>Privacy Policy - College Hub ECE</title>
+    <style>
+        :root {
+            --color-primary: #32b8c5;
+            --color-dark: #1a252f;
+            --color-light: #f8f9fa;
+            --text-primary: #f8f9fa;
+            --text-secondary: rgba(248, 249, 250, 0.7);
+            --gradient-dark: linear-gradient(135deg, #1a252f 0%, #0f1419 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--gradient-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(50, 184, 197, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, -50px); }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(26, 37, 47, 0.7);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: var(--color-primary);
+            margin: 30px 0 15px;
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 10px;
+        }
+
+        p {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background: rgba(26, 37, 47, 0.8);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(50, 184, 197, 0.2);
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            main {
+                padding: 20px 10px;
+            }
+        }
+        /* Light-mode overrides */
+        body.light-mode { background: #fffafc; --text-primary: #0b1220; --text-secondary: #475569; color: var(--text-primary); }
+        body.light-mode nav { background: rgba(255,255,255,0.95); }
+        body.light-mode nav a, body.light-mode nav .logo { color: #0b1220; }
+        body.light-mode main, body.light-mode footer { background: #ffffff; color: #0b1220; border-color: rgba(0,0,0,0.06); box-shadow: 0 8px 30px rgba(10,10,10,0.03); }
+        /* --- UNIVERSAL TECH BANNER STYLES --- */
+.tech-banner {
+    position: relative;
+    background-color: var(--color-dark);
+    /* Fallback and Gradient */
+    background: radial-gradient(circle at top right, rgba(50, 184, 197, 0.15), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(255, 107, 107, 0.1), transparent 40%),
+                linear-gradient(180deg, rgba(26, 37, 47, 0.95), rgba(15, 20, 25, 1));
+    border-bottom: 1px solid rgba(50, 184, 197, 0.3);
+    overflow: hidden;
+    padding: 60px 20px; /* Slightly compact for internal pages */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Circuit Grid Pattern */
+.tech-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+        linear-gradient(rgba(50, 184, 197, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(50, 184, 197, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+    pointer-events: none;
+}
+
+/* Glowing Nodes Animation */
+.tech-nodes {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+}
+
+.tech-node {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-primary);
+    opacity: 0;
+    animation: flashNode 4s infinite;
+}
+
+/* Node Positions */
+.tech-node:nth-child(1) { top: 30%; left: 20%; animation-delay: 0s; }
+.tech-node:nth-child(2) { top: 70%; left: 80%; animation-delay: 1.5s; }
+.tech-node:nth-child(3) { top: 40%; left: 60%; animation-delay: 2.5s; }
+.tech-node:nth-child(4) { top: 80%; left: 10%; animation-delay: 3.5s; }
+
+/* Connecting Lines */
+.tech-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(50, 184, 197, 0.5), transparent);
+    width: 100px;
+    animation: moveLine 8s linear infinite;
+    opacity: 0.4;
+}
+.tech-line:nth-child(5) { top: 31%; left: 20%; transform: rotate(45deg); }
+.tech-line:nth-child(6) { top: 71%; left: 75%; transform: rotate(-15deg); }
+
+/* Text Styling */
+.tech-banner h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, #fff 30%, var(--color-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.tech-banner p {
+    font-size: 1.1rem;
+    color: rgba(248, 249, 250, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Animations */
+@keyframes flashNode {
+    0%, 100% { opacity: 0; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+@keyframes moveLine {
+    0% { transform: translateX(-50px) rotate(45deg); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateX(50px) rotate(45deg); opacity: 0; }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .tech-banner { padding: 40px 15px; }
+    .tech-banner h1 { font-size: 2rem; }
+}
+    </style>
+</head>
+<body>
+    <amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-6279063022818685">
+</amp-auto-ads>
+    <div class="bg-animation"></div>
+
+    <div class="bg-animation"></div>
+
+    <nav>
+        <a href="index.html" class="logo">📚 College Hub</a>
+        <ul>
+            <li id="theme-toggle" style="cursor:pointer"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="currentColor" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21.5 14.0784C20.3003 14.7189 18.9301 15.0821 17.4751 15.0821C12.7491 15.0821 8.91792 11.2509 8.91792 6.52485C8.91792 5.06986 9.28105 3.69968 9.92163 2.5C5.66765 3.49698 2.5 7.31513 2.5 11.8731C2.5 17.1899 6.8101 21.5 12.1269 21.5C16.6849 21.5 20.503 18.3324 21.5 14.0784Z" />
+</svg></li>
+<li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+        </ul>
+    </nav>
+<div class="tech-banner">
+    <div class="tech-nodes">
+        <div class="tech-node"></div><div class="tech-node"></div>
+        <div class="tech-node"></div><div class="tech-node"></div>
+        <div class="tech-line"></div><div class="tech-line"></div>
+    </div>
+    <h1>🔒 Privacy Policy</h1>
+    <p>We value your privacy. Learn how we handle and protect your data.</p>
+</div>
+    <main>
+       
+        <p class="last-updated">Last Updated: November 2025</p>
+
+        <h2>1. Introduction</h2>
+        <p>College Hub - ECE Innovation Center ("we," "us," "our," or "Company") operates the website. This Privacy Policy explains our online information practices and the choices you can make about the way your information is collected and used.</p>
+
+        <h2>2. Information We Collect</h2>
+        <p>We collect information you voluntarily provide when:</p>
+        <ul>
+            <li>Filling out contact forms</li>
+            <li>Subscribing to our newsletter</li>
+            <li>Downloading resources or question papers</li>
+            <li>Participating in surveys or feedback</li>
+            <li>Using our website and services</li>
+        </ul>
+        <p>Information we automatically collect includes:</p>
+        <ul>
+            <li>IP address and device information</li>
+            <li>Browser type and version</li>
+            <li>Pages visited and time spent</li>
+            <li>Cookies and tracking data</li>
+            <li>Analytics information through Google Analytics</li>
+        </ul>
+
+        <h2>3. Google Analytics and Advertising</h2>
+        <p>Our website uses Google Analytics to understand how visitors use our site. This includes:</p>
+        <ul>
+            <li>Tracking user behavior and engagement</li>
+            <li>Understanding traffic sources</li>
+            <li>Measuring website performance</li>
+            <li>Personalizing user experience</li>
+        </ul>
+        <p>We use Google AdSense to display advertisements on our website. Google may use cookies and other technologies to serve ads based on your previous visits to our website and other websites.</p>
+
+        <h2>4. How We Use Your Information</h2>
+        <p>We use collected information for:</p>
+        <ul>
+            <li>Providing and improving our services</li>
+            <li>Responding to your inquiries</li>
+            <li>Sending educational updates and resources</li>
+            <li>Analyzing website usage and trends</li>
+            <li>Personalizing user experience</li>
+            <li>Complying with legal obligations</li>
+            <li>Displaying relevant advertisements</li>
+        </ul>
+
+        <h2>5. Third-Party Services</h2>
+        <p>Our website uses third-party services that may collect information about you:</p>
+        <ul>
+            <li><strong>Google Analytics:</strong> Tracks website usage and user behavior</li>
+            <li><strong>Google AdSense:</strong> Displays personalized advertisements</li>
+            <li><strong>Contact Forms:</strong> Third-party form handlers (if applicable)</li>
+            <li><strong>Social Media:</strong> Links to social platforms</li>
+        </ul>
+        <p>Please review the privacy policies of these third-party services for more information.</p>
+
+        <h2>6. Cookies and Tracking Technologies</h2>
+        <p>We use cookies to:</p>
+        <ul>
+            <li>Remember your preferences</li>
+            <li>Understand how you use our site</li>
+            <li>Serve personalized advertisements</li>
+            <li>Analyze website performance</li>
+        </ul>
+        <p>You can control cookies through your browser settings. Disabling cookies may affect the functionality of some features on our website.</p>
+
+        <h2>7. Data Security</h2>
+        <p>We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, and misuse. However, no method of transmission over the internet or electronic storage is completely secure.</p>
+
+        <h2>8. Data Retention</h2>
+        <p>We retain your personal information only for as long as necessary to provide our services or as required by law. You can request deletion of your information at any time by contacting us.</p>
+
+        <h2>9. Children's Privacy</h2>
+        <p>Our website is not directed to children under 13 years of age. We do not knowingly collect personal information from children. If we become aware that we have collected information from a child under 13, we will take steps to delete such information immediately.</p>
+
+        <h2>10. Your Rights and Choices</h2>
+        <p>You have the right to:</p>
+        <ul>
+            <li>Access the personal information we hold about you</li>
+            <li>Request correction of inaccurate information</li>
+            <li>Request deletion of your information</li>
+            <li>Opt-out of marketing communications</li>
+            <li>Disable cookies in your browser</li>
+            <li>Opt-out of Google Analytics tracking</li>
+        </ul>
+
+        <h2>11. International Data Transfers</h2>
+        <p>Your information may be transferred to and stored in countries other than your country of residence. These countries may have data protection laws that are different from your home country. By using our website, you consent to the transfer of your information to countries outside your country of residence.</p>
+
+        <h2>12. Links to Other Websites</h2>
+        <p>Our website contains links to third-party websites. We are not responsible for the privacy practices of these external sites. Please review their privacy policies before providing any personal information.</p>
+
+        <h2>13. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last Updated" date. Your continued use of the website indicates your acceptance of the updated Privacy Policy.</p>
+
+        <h2>14. Contact Us</h2>
+        <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:</p>
+        <ul>
+            <li>Email: aksingh1990aks@gmail.com</li>
+            <li>Address: Guru Ghasidas Vishwavidyalaya, Koni, Bilaspur, Chhattisgarh, India, 495009</li>
+            <li>Website: <a href="index.html" style="color: var(--color-primary);">College Hub</a></li>
+        </ul>
+
+        <h2>15. Legal Compliance</h2>
+        <p>This Privacy Policy complies with applicable privacy laws and regulations including GDPR, CCPA, and other data protection regulations. We are committed to protecting your privacy rights and personal information.</p>
+
+        <p style="margin-top: 40px; font-style: italic; color: rgba(248, 249, 250, 0.7);">This Privacy Policy was last updated in November 2025 and is effective immediately.</p>
+    </main>
+
+    <footer>
+        <div style="margin-bottom: 20px;">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+        <p>&copy; 2025 College Hub - ECE Innovation Center. All rights reserved.</p>
+    </footer>
+    <script>
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-mode');
+        const tbtn = document.getElementById('theme-toggle');
+        if (tbtn) tbtn.addEventListener('click', () => { const l = document.body.classList.toggle('light-mode'); localStorage.setItem('theme', l ? 'light' : 'dark'); });
+    </script>
+</body>
+</html>

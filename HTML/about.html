@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - College Hub</title>
+    <link rel="stylesheet" href="../Css/css main.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') document.documentElement.classList.add('light-mode');
+        })();
+    </script>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <a href="index.html" class="logo">📚 College Hub</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="tech-banner">
+        <h1>About College Hub</h1>
+        <p>Bridging the gap between theory and practice for ECE students.</p>
+    </header>
+
+    <main style="padding: 40px 5%; max-width: 900px; margin: 0 auto;">
+        <div class="semester-card" style="margin-bottom: 2rem;">
+            <h3>🎯 Our Mission</h3>
+            <p style="color:var(--text-dim); margin-top:1rem;">
+                College Hub is dedicated to providing <span class="conf-college"></span> students with a centralized platform for academic resources, previous year questions, and practical project guidance. We believe in open access to knowledge and peer-to-peer learning.
+            </p>
+        </div>
+
+        <div class="semester-card" style="margin-bottom: 2rem;">
+            <h3>👤 The Founder</h3>
+            <p style="color:var(--text-dim); margin-top:1rem;">
+                <strong><span class="conf-founder"></span></strong> is a B.Tech ECE student passionate about RF Engineering, IoT, and Web Development. 
+                <br><br>
+                "I created this hub to help my juniors and batchmates find everything they need in one place—from PYQs to project ideas—so they can focus on innovation rather than searching for files."
+            </p>
+        </div>
+
+        <div class="semester-card">
+            <h3>🤝 Connect</h3>
+            <p style="color:var(--text-dim); margin-top:1rem;">
+                Have a suggestion or found a bug? Reach out directly via email at <a href="#" class="conf-email" style="color:var(--primary);"></a>.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <p>&copy; <span class="conf-year"></span> <span class="conf-founder"></span>.</p>
+    </footer>
+
+    <script src="../Assets/js/config.js"></script>
+</body>
+</html>
